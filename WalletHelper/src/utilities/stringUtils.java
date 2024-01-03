@@ -7,7 +7,8 @@ import java.time.format.DateTimeFormatter;
 // This class is made for simpler access to 'more-low-level' string operations, especially
 // considering date formatting, which is useful when inserting for example transaction-related
 // data into the database.
-public class stringUtils {
+// As it should not be instantiated, it shall be declared as an abstract class.
+public abstract class stringUtils {
 
     public static String getString() {
         Scanner sc = new Scanner(System.in);
@@ -38,12 +39,4 @@ public class stringUtils {
 
         return dtf.format(ld);
     }
-
-    /*
-    // main for testing
-    public static void main(String[] args) {
-        float txt = getFloatValue();
-        System.out.println(txt);
-    }
-    */
 }

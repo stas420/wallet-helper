@@ -10,8 +10,7 @@ import java.sql.ResultSet;
 // It is dependant on opened database connection, which shall be provided by DBConnection.
 public class DBQuery {
 
-    // === Protected ===
-    // Constructors:
+    // ==== Constructors ====
     protected DBQuery(Connection conn, String query) {
         this.query = query;
 
@@ -36,7 +35,7 @@ public class DBQuery {
         }
     }
 
-    // Methods:
+    // ==== Methods ====
     protected void query() throws SQLException {
         this.res = this.statement.executeQuery(this.query);
     }
@@ -49,8 +48,7 @@ public class DBQuery {
         return res.getString(read);
     }
 
-    // === Private ===
-    // Fields:
+    // ==== Fields ====
     private Statement statement;
     private String query;
     private ResultSet res;
