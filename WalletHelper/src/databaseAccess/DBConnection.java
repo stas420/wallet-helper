@@ -4,6 +4,9 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+// This class is made for database connection management: it opens and closes the connection
+// with database and holds its current status (whether it is set or not), which is
+// essential for any querying.
 public class DBConnection {
 
     protected static void setConnection(String username, String password) {
@@ -48,10 +51,6 @@ public class DBConnection {
 
     protected static boolean isConnected() {
         return isSet;
-    }
-
-    protected static Connection getConnection () {
-        return mainConnector;
     }
 
     private static Connection mainConnector;

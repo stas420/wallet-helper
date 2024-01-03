@@ -3,8 +3,10 @@ package utilities;
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.sql.*;
 
+// This class is made for simpler access to 'more-low-level' string operations, especially
+// considering date formatting, which is useful when inserting for example transaction-related
+// data into the database.
 public class stringUtils {
 
     public static String getString() {
