@@ -7,11 +7,12 @@ import java.sql.DriverManager;
 // This class is made for database connection management: it opens and closes the connection
 // with database and holds its current status (whether it is set or not), which is
 // essential for any querying.
-public class DBConnection {
+// It should stay abstract for now.
+public abstract class DBConnection {
 
-    protected static void setConnection(String username, String password) {
+    protected static void setConnection(/*String username, String password*/) throws SQLException {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         }
         catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -20,32 +21,18 @@ public class DBConnection {
             return;
         }
 
-        String databaseUrl = "jdbc:mysql//localhost:3306/wallethelper_example";
+        String databaseUrl = "jdbc:mysql://localhost:3306/wallethelper_example";
+        String username = "root";
+        String password = "";
 
-        try {
-            mainConnector = DriverManager.getConnection(databaseUrl, username, password);
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("setConnection() - connection error: " + e.getMessage());
-            // log4j instructions
-            return;
-        }
+        mainConnector = DriverManager.getConnection(databaseUrl, username, password);
 
         isSet = true;
     }
 
-    protected static void closeConnection() {
-        try {
-            mainConnector.close();
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("closeConnection(): " + e.getMessage());
-            // log4j instructions
-            return;
-        }
+    protected static void closeConnection() throws SQLException {
 
+        mainConnector.close();
         isSet = false;
     }
 
@@ -53,6 +40,28 @@ public class DBConnection {
         return isSet;
     }
 
+    protected static Connection getConnector() {
+        return mainConnector;
+    }
+
     private static Connection mainConnector;
-    private static boolean isSet;
+    private static boolean isSet = false;
+
+    /* // Exemplary reaching database
+    public static void main(String[] args) {
+        try {
+            setConnection();
+            Statement st = getConnector().createStatement();
+            ResultSet res = st.executeQuery("SELECT * FROM Users WHERE UserID=3");
+            res.next();
+            System.out.println("result: " + res.getString("Phone"));
+            closeConnection();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+
+        System.out.println("Ended correctly!");
+    } */
 }
