@@ -13,20 +13,21 @@ import java.sql.DriverManager;
 // It should stay abstract for now.
 public abstract class DBConnection {
 
-    protected static void setConnection(/*String username, String password*/) throws SQLException {
+    protected static void setConnection(/*String user, String pass*/) throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         }
         catch (ClassNotFoundException e) {
             e.printStackTrace();
-            System.out.println("setConnection() - no Driver: " + e.getMessage());
+            System.out.println("setConnection - no Driver: " + e.getMessage());
             // log4j instructions
             return;
         }
 
-        String databaseUrl = "jdbc:mysql://localhost:3306/wallethelper_example";
-        String username = "app";
-        String password = "1app2Password3";
+        /*
+        username = user;
+        password = pass;
+         */
 
         mainConnector = DriverManager.getConnection(databaseUrl, username, password);
 
@@ -48,6 +49,9 @@ public abstract class DBConnection {
     }
 
     private static Connection mainConnector;
+    private static final String databaseUrl = "jdbc:mysql://localhost:3306/wallethelper_example";
+    private static String username = "app";
+    private static String password = "1app2Password3";
     private static boolean isSet = false;
 
     /*

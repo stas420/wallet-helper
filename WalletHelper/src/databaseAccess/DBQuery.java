@@ -1,72 +1,52 @@
 package databaseAccess;
 
+import static utilities.Enums.ifForeignKey;
+import static utilities.Enums.foreignKeySource;
 import utilities.Enums.DataKey;
 import utilities.Enums.TableKey;
 
 // This class is made for SQL query construction and returning it as a String.
-// Requires yet some idiot-security and exception throwing (its own exception class).
+// Foreign-key operations require providing it explicitly, i.e. not by SELECT or SET combinations.
+// Requires yet some:
+//      - idiot-security and exception throwing (its own exception class)
+//      - rewriting to handle PreparedStatement (i.e. select ? from ? where ...)
 public abstract class DBQuery {
 
-    protected static String selectQuery(TableKey from, DataKey where, String whereIs, DataKey selectWhat) {
-        return ("SELECT " + selectWhat.dataKey + " FROM " + from.tableKey + " WHERE " + where.dataKey + "='" + whereIs + "';");
+    // SELECT what/* FROM table WHERE where='whereIs';
+    protected static String select(TableKey table, DataKey where, String whereIs) {
+        return ("SELECT * FROM " + table.tableKey + " WHERE " + where.dataKey + "='" + whereIs + "'");
     }
 
-    protected static String selectQuery(TableKey from, DataKey where, String whereIs) {
-        return ("SELECT * FROM " + from.tableKey + " WHERE " + where.dataKey + "='" + whereIs + "';");
+    protected static String select(TableKey table, DataKey where, String whereIs, DataKey what) {
+        return ("SELECT " + what.dataKey + " FROM " + table.tableKey + " WHERE " + where.dataKey + "='" + whereIs + "'");
     }
 
-    protected static String updateQuery(TableKey table, DataKey col, String val, DataKey where, String whereIs) {
-        return ("UPDATE " + table.tableKey + " SET " + col.dataKey + "='" + val + "' WHERE " + where.dataKey + "='" + whereIs + "';");
-    }
+    // INSERT INTO table (col1, col2, ...) VALUES (v1, v2, ...);
+    protected static String insert(TableKey table, DataKey[] where) {
 
-    protected static String updateQuery(TableKey table, DataKey[] col, String[] val, DataKey where, String whereIs) {
-
-        String out = "";
-
-        if (col.length != val.length || col.length == 1)
+        if (where.length == 0)
             return "ERROR";
 
-        out = "UPDATE " + table.tableKey + " SET ";
+        String output = "INSERT INTO " + table.tableKey + " (";
 
-        for (int i = 0; i < col.length - 1; i++) {
-
-            out += col[i].dataKey + "='" + val[i] + "', ";
+        for (int i = 0; i < (where.length - 1); i++) {
+                output += where[i].dataKey +  ", ";
         }
 
-        out += col[col.length-1] + "='" + val[val.length-1] +"' WHERE " + where.dataKey + "='" + whereIs + "';";
+        output += where[where.length - 1] + ") VALUES (";
+        int j = 0;
 
-        return out;
-    }
-
-    protected static String insertQuery(TableKey table, DataKey col, String val) {
-        return ("INSERT INTO " + table.tableKey + " (" + col.dataKey + ") VALUES (" + val + ");");
-    }
-
-    protected static String insertQuery(TableKey table, DataKey[] col, String[] val) {
-
-        String out = "";
-
-        if (col.length != val.length || col.length == 1)
-            return "ERROR";
-
-        out = "INSERT INTO " + table.tableKey + " (";
-
-        for (int i = 0; i < col.length - 1; i++) {
-            out += col[i].dataKey + ", ";
+        for (int i = 0; i < (where.length - 1); i++) {
+            output += "?, ";
         }
 
-        out += col[col.length - 1] + ") VALUES (";
+        output += "?)";
 
-        for (int i = 0; i < val.length - 1; i++) {
-            out += val[i] + ", ";
-        }
-
-        out += val[val.length - 1] + ");";
-
-        return out;
+        return output;
     }
 
-    protected static String deleteQuery(TableKey table, DataKey where, String whereIs) {
-        return ("DELETE FROM " + table.tableKey + " WHERE " + where.dataKey + "='" + whereIs + "';");
+    // DELETE FROM table WHERE where=whereIs;
+    protected static String delete(TableKey table, DataKey where, String whereIs) {
+        return ("DELETE FROM " + table.tableKey + " WHERE " + where.dataKey + "='" + whereIs + "'");
     }
 }

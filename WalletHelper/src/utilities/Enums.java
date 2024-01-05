@@ -35,4 +35,43 @@ public abstract class Enums {
         }
     }
 
+    public enum TypeKey {
+        INT, STRING, FLOAT
+    }
+
+    public static TypeKey dataToType(DataKey data) {
+
+        // Weird, Java 'enhanced switch expression' IntelliJ forced me to make ;_;
+        return switch (data) {
+            case UserID, AccID, GoalID, TransID, Phone: {
+                yield TypeKey.INT;
+            }
+
+            case Val, ValBefore, Change, Goal: {
+                yield TypeKey.FLOAT;
+            }
+
+            default: {
+                yield TypeKey.STRING;
+            }
+        };
+    }
+
+    public static boolean ifForeignKey (DataKey column) {
+        return switch (column) {
+            case UserID, AccID:
+                yield true;
+            default:
+                yield false;
+        };
+    }
+
+    public static TableKey foreignKeySource (DataKey column) {
+
+        if (column == DataKey.UserID)
+            return TableKey.USERS;
+
+        return TableKey.ACCOUNTS;
+    }
+
 }
