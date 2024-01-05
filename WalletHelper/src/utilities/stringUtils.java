@@ -5,9 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 // This class is made for simpler access to 'more-low-level' string operations, especially
-// considering date formatting, which is useful when inserting for example transaction-related
-// data into the database.
-// As it should not be instantiated, it shall be declared as an abstract class.
+// considering date formatting.
 public abstract class stringUtils {
 
     public static String getString() {

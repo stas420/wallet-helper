@@ -2,6 +2,8 @@ package utilities;
 
 public abstract class Enums {
 
+    // Enums provide some 'argument insertion' security and I like to use them
+
     public enum QueryKey {
         SELECT("SELECT"), INSERT("INSERT"), UPDATE("UPDATE"), DELETE("DELETE");
 
@@ -41,7 +43,7 @@ public abstract class Enums {
 
     public static TypeKey dataToType(DataKey data) {
 
-        // Weird, Java 'enhanced switch expression' IntelliJ forced me to make ;_;
+        // A weird, Java 'enhanced switch expression' IntelliJ forced me to make ;_;
         return switch (data) {
             case UserID, AccID, GoalID, TransID, Phone: {
                 yield TypeKey.INT;
@@ -57,6 +59,8 @@ public abstract class Enums {
         };
     }
 
+    /*
+    // Is this even useful?
     public static boolean ifForeignKey (DataKey column) {
         return switch (column) {
             case UserID, AccID:
@@ -65,13 +69,12 @@ public abstract class Enums {
                 yield false;
         };
     }
-
+    // And this?
     public static TableKey foreignKeySource (DataKey column) {
 
         if (column == DataKey.UserID)
             return TableKey.USERS;
 
         return TableKey.ACCOUNTS;
-    }
-
+    }*/
 }

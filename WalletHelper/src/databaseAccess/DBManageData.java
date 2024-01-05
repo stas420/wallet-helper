@@ -7,14 +7,11 @@ import static utilities.Enums.dataToType;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
+// Used for queries changing structure of the database (INSERT, UPDATE, DELETE),
+// so they do not return actually anything.
 public class DBManageData {
 
-    // Update data:
-    //      single user data, single goal data, single acc data
-
-    // Insert data:
-    //      single user, single trans, single goal, single acc
-
+    /* // Needs rewriting and rethinking if it will ever be used
     protected static void insertSingleData (TableKey table, DataKey column, String val) throws SQLException {
 
         DBConnection.setConnection();
@@ -39,7 +36,7 @@ public class DBManageData {
 
         ps.execute();
         DBConnection.closeConnection();
-    }
+    }*/
 
     protected static void insertRow(TableKey table, DataKey[] columns, String[] values) throws SQLException {
 
@@ -75,9 +72,39 @@ public class DBManageData {
         DBConnection.closeConnection();
     }
 
-    // Delete data:
-    //      acc record, goal record, transaction record
-    //      SPECIAL CASE: delete USER
-    protected static void deleteRow(TableKey table, DataKey )
+    protected static void updateSingleData (TableKey table, DataKey ID, String IDVal, DataKey column, String newVal) throws SQLException {
+
+        DBConnection.setConnection();
+        PreparedStatement ps = DBConnection.getConnector().prepareStatement(DBQuery.update(table, column, ID));
+
+        switch(dataToType(column)) {
+            case INT: {
+                ps.setInt(1, Integer.parseInt(newVal));
+                break;
+            }
+            case FLOAT: {
+                ps.setFloat(1, Float.parseFloat(newVal));
+                break;
+            }
+            default:
+                ps.setString(1, newVal);
+        }
+
+        ps.setInt(2, Integer.parseInt(IDVal));
+
+        ps.execute();
+        DBConnection.closeConnection();
+    }
+
+    // SPECIAL CASE: delete USER -> this action will be protected by app locally (when any data, then cannot delete)
+    protected static void deleteRow(TableKey table, DataKey ID, String IDVal) throws SQLException {
+
+        DBConnection.setConnection();
+        PreparedStatement ps = DBConnection.getConnector().prepareStatement(DBQuery.delete(table, ID));
+        ps.setInt(1, Integer.parseInt(IDVal));
+        ps.execute();
+
+        DBConnection.closeConnection();
+    }
 
 }

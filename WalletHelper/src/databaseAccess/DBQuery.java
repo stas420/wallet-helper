@@ -1,11 +1,12 @@
 package databaseAccess;
 
-import static utilities.Enums.ifForeignKey;
-import static utilities.Enums.foreignKeySource;
+//import static utilities.Enums.ifForeignKey;
+//import static utilities.Enums.foreignKeySource;
 import utilities.Enums.DataKey;
 import utilities.Enums.TableKey;
 
-// This class is made for SQL query construction and returning it as a String.
+// This class is made for SQL query construction and returning it as a String, which shall be
+// later parametrized with PreparedStatement in DBGetData and DBManageData.
 // Foreign-key operations require providing it explicitly, i.e. not by SELECT or SET combinations.
 // Requires yet some:
 //      - idiot-security and exception throwing (its own exception class)
@@ -22,8 +23,7 @@ public abstract class DBQuery {
     }
 
     // INSERT INTO table (col1, col2, ...) VALUES (v1, v2, ...);
-    protected static String insert(TableKey table, DataKey[] where) {
-
+    protected static String insert(TableKey table, DataKey... where) {
         if (where.length == 0)
             return "ERROR";
 
@@ -45,8 +45,28 @@ public abstract class DBQuery {
         return output;
     }
 
+    // UPDATE table SET c1=v1, c2=v2, ... WHERE ...;
+    protected static String update(TableKey table, DataKey what, DataKey where) {
+        return ("UPDATE " + table.tableKey + " SET " + what.dataKey + "= ? WHERE " + where.dataKey + "= ?");
+    }
+
+    protected static String update(TableKey table, DataKey[] what, DataKey where) {
+        if(what.length == 1)
+            return "ERROR";
+
+        String output = "UPDATE " + table.tableKey + " SET ";
+
+        for (int i = 0; i < (what.length - 1); i++) {
+            output += what[i].dataKey + "= ?, ";
+        }
+
+        output += what[what.length - 1] + "= ? WHERE " + where.dataKey + "= ?";
+
+        return output;
+    }
+
     // DELETE FROM table WHERE where=whereIs;
-    protected static String delete(TableKey table, DataKey where, String whereIs) {
-        return ("DELETE FROM " + table.tableKey + " WHERE " + where.dataKey + "='" + whereIs + "'");
+    protected static String delete(TableKey table, DataKey where) {
+        return ("DELETE FROM " + table.tableKey + " WHERE " + where.dataKey + "=?");
     }
 }
