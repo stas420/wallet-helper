@@ -4,6 +4,9 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+//import java.sql.Statement;
+//import java.sql.ResultSet;
+
 // This class is made for database connection management: it opens and closes the connection
 // with database and holds its current status (whether it is set or not), which is
 // essential for any querying.
@@ -22,8 +25,8 @@ public abstract class DBConnection {
         }
 
         String databaseUrl = "jdbc:mysql://localhost:3306/wallethelper_example";
-        String username = "root";
-        String password = "";
+        String username = "app";
+        String password = "1app2Password3";
 
         mainConnector = DriverManager.getConnection(databaseUrl, username, password);
 
@@ -47,21 +50,22 @@ public abstract class DBConnection {
     private static Connection mainConnector;
     private static boolean isSet = false;
 
-    /* // Exemplary reaching database
+    /*
+    // Exemplary reaching database
     public static void main(String[] args) {
         try {
             setConnection();
             Statement st = getConnector().createStatement();
-            ResultSet res = st.executeQuery("SELECT * FROM Users WHERE UserID=3");
+            ResultSet res = st.executeQuery("SELECT * FROM Users WHERE UserID='2'");
             res.next();
-            System.out.println("result: " + res.getString("Phone"));
+            System.out.println("result: " + res.getString("Email"));
             closeConnection();
         }
         catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             return;
         }
 
         System.out.println("Ended correctly!");
-    } */
+    }*/
 }
