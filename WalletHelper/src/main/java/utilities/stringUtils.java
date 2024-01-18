@@ -1,8 +1,7 @@
 package utilities;
 
 import java.util.Scanner;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 // This class is made for simpler access to 'more-low-level' string operations, especially
 // considering date formatting.
@@ -24,6 +23,15 @@ public abstract class stringUtils {
         return sc.nextInt();
     }
 
+    public static long getEpochTimeStamp(Date date) {
+        return date.getTime() / 1000;
+    }
+
+    public static Date parseEpochToDate(long epoch) {
+        return new Date(epoch * 1000);
+    }
+}
+/*
     public static String currentTimeStamp() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         LocalDateTime ld = LocalDateTime.now();
@@ -37,4 +45,4 @@ public abstract class stringUtils {
 
         return dtf.format(ld);
     }
-}
+    */

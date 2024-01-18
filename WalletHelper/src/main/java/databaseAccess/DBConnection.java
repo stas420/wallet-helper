@@ -9,14 +9,12 @@ import java.sql.Statement;
 // with database and holds its current status (whether it is set or not).
 public abstract class DBConnection {
 
+    private static final String DATABASE_URL = "jdbc:sqlite:./database.db";
+
     protected static void setConnection(/*String user, String pass*/){
         try {
             // Establish a connection to the sqlite db
-            Connection connection = DriverManager.getConnection(databaseUrl);
-            // Create a statement object
-            Statement statement = connection.createStatement();
-            statement.executeUpdate("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, email TEXT, phoneNumber TEXT, password TEXT)");
-            statement.close();
+            Connection connection = DriverManager.getConnection(DATABASE_URL);
             isSet = true;
             mainConnector = connection;
         }
@@ -36,17 +34,20 @@ public abstract class DBConnection {
     }
 
     protected static Connection getConnector() {
+        while(!DBConnection.isConnected())
+            DBConnection.setConnection();
+
         return mainConnector;
     }
 
     private static Connection mainConnector;
-    private static final String databaseUrl = "jdbc:sqlite:D:\\dev\\java\\wallet-helper\\database.db";
     private static String username = "app";
     private static String password = "1app2Password3";
     private static boolean isSet = false;
 
     public static void main(String[] args) {
         setConnection();
+
     }
 }
 

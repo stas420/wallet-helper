@@ -13,6 +13,10 @@ import utilities.Enums.TableKey;
 //      - rewriting to handle PreparedStatement (i.e. select ? from ? where ...)
 public abstract class DBQuery {
 
+    // SELECT ? FROM table WHERE column=?
+    protected static String select(TableKey table, DataKey where) {
+        return ("SELECT ? FROM " + table.tableKey + " WHERE " + where.dataKey + "=?");
+    }
     // SELECT what/* FROM table WHERE where='whereIs';
     protected static String select(TableKey table, DataKey where, String whereIs) {
         return ("SELECT * FROM " + table.tableKey + " WHERE " + where.dataKey + "='" + whereIs + "'");
