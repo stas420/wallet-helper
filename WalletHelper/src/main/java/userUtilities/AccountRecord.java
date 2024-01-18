@@ -1,0 +1,40 @@
+package userUtilities;
+
+import java.util.Date;
+import utilities.stringUtils;
+
+public class AccountRecord {
+
+    public AccountRecord() {
+        this.AccID = this.UserID = 0;
+        this.Title = this.Currency = "";
+        this.CreateTimeStamp = new Date();
+        this.Val = 0f;
+    }
+
+    public String toString() {
+        return "Account ID: " + AccID + "\n" +
+                "User ID: " + UserID + "\n" +
+                "Title: " + Title + "\n" +
+                "Value: " + Val + "\n" +
+                "Currency: " + Currency + "\n" +
+                "CreateTimeStamp: " + CreateTimeStamp.toString() + "\n";
+    }
+
+    public AccountRecord(String accID, String userID, String title, String valueInt, String currency, String createTimeStamp) {
+        AccID = Integer.parseInt(accID);
+        UserID = Integer.parseInt(userID);
+        Title = title;
+        Val = Float.parseFloat(valueInt) / 100;
+        Currency = currency;
+        CreateTimeStamp = stringUtils.parseEpochToDate(Integer.parseInt(createTimeStamp));
+    }
+
+    // private + setters() getters()? może później
+    public int AccID;
+    public int UserID;
+    public String Title;
+    public float Val;
+    public String Currency;
+    public Date CreateTimeStamp;
+}
