@@ -1,4 +1,4 @@
-package main.java.utilities;
+package utilities;
 
 public abstract class Enums {
 
@@ -19,7 +19,7 @@ public abstract class Enums {
         Val("Val"), ValBefore("ValBefore"), Change("Change"), Goal("Goal"), Currency("Currency"),
         UserName("UserName"), Email("Email"), Phone("Phone"), Password("Password"),
         Title("Title"), CreateTimeStamp("CreateTimeStamp"), TimeStamp("TimeStamp"), Deadline("Deadline"),
-        MainAcc("MainAcc");
+        mainAccount("mainAccount");
 
         public final String dataKey;
 
@@ -46,7 +46,7 @@ public abstract class Enums {
 
         // A weird, Java 'enhanced switch expression' IntelliJ forced me to make ;_;
         return switch (data) {
-            case UserID, AccID, GoalID, TransID, Phone, MainAcc, CreateTimeStamp, TimeStamp: {
+            case UserID, AccID, GoalID, TransID, Phone, mainAccount, CreateTimeStamp, TimeStamp: {
                 yield TypeKey.INT;
             }
 

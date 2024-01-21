@@ -1,10 +1,10 @@
-package main.java.userUtilities;
+package userUtilities;
 
 import java.util.Date;
 import java.util.Optional;
-import main.java.utilities.stringUtils;
+import utilities.stringUtils;
 
-public class HistoryRecord{
+public class HistoryRecord {
     public int transId;
     public int userId;
     public int accId;

@@ -1,10 +1,10 @@
-package main.java.databaseAccess;
+package databaseAccess;
 
-import main.java.userUtilities.GoalRecord;
-import main.java.userUtilities.UserRecord;
-import main.java.utilities.Enums.DataKey;
-import main.java.utilities.Enums.TableKey;
-import main.java.userUtilities.AccountRecord;
+import userUtilities.GoalRecord;
+import userUtilities.UserRecord;
+import utilities.Enums.DataKey;
+import utilities.Enums.TableKey;
+import userUtilities.AccountRecord;
 
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -25,6 +25,36 @@ public abstract class DBGetData {
      */
 
     // It will be useful when logging in a user
+    public static Optional<UserRecord[]> getUserRows(String username) {
+        if (username.isEmpty())
+            return Optional.empty();
+
+        // SELECT * FROM users WHERE UserName = {username}
+        String query = DBQuery.select(TableKey.USERS, DataKey.UserName, username);
+        ResultSet result;
+        ArrayList<UserRecord> records = new ArrayList<>();
+
+        try(Statement statement = DBConnection.getConnector().createStatement()) {
+            result = statement.executeQuery(query);
+
+            while(result.next()) {
+                String[] results = new String[6];
+                for (int colIndex = 0; colIndex < 6; colIndex++) {
+                    results[colIndex] = result.getString(colIndex + 1);
+                }
+                UserRecord record = new UserRecord(results);
+                records.add(record);
+            }
+        }
+        catch (Exception e) {
+            // TODO log4j
+            e.printStackTrace();
+            return Optional.empty();
+        }
+        if (records.isEmpty())
+            return Optional.empty();
+        return Optional.of(records.toArray(new UserRecord[0]));
+    }
 
     public static Optional<UserRecord[]> getUserRows(int userId) {
         if (userId < 0)
@@ -55,7 +85,7 @@ public abstract class DBGetData {
         return Optional.of(records.toArray(new UserRecord[0]));
     }
 
-    protected static Optional<AccountRecord[]> getAccountRows(int userID) {
+    public static Optional<AccountRecord[]> getAccountRows(int userID) {
         if (userID < 0)
             return Optional.empty();
 

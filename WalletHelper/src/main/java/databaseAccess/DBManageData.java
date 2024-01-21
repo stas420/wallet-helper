@@ -1,8 +1,8 @@
-package main.java.databaseAccess;
+package databaseAccess;
 
-import main.java.utilities.Enums.TableKey;
-import main.java.utilities.Enums.DataKey;
-import static main.java.utilities.Enums.dataToType;
+import utilities.Enums.TableKey;
+import utilities.Enums.DataKey;
+import static utilities.Enums.dataToType;
 
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ import java.math.RoundingMode;
 // so they do not return actually anything.
 public class DBManageData {
 
-    protected static void insertRow(TableKey table, DataKey[] columns, String[] values) throws SQLException {
+    public static void insertRow(TableKey table, DataKey[] columns, String[] values) throws SQLException {
 
         while(!DBConnection.isConnected()) {
             DBConnection.setConnection();
@@ -24,8 +24,9 @@ public class DBManageData {
             System.out.println("insertRow - incorrect arrays' sizes.");
             return;
         }
-
-        PreparedStatement ps = DBConnection.getConnector().prepareStatement(DBQuery.insert(table, columns));
+        String query = DBQuery.insert(table, columns);
+        System.out.println(columns);
+        PreparedStatement ps = DBConnection.getConnector().prepareStatement(query);
 
         for (int i = 0; i < values.length; i++) {
 
@@ -54,7 +55,7 @@ public class DBManageData {
         ps.execute();
     }
 
-    protected static void updateSingleData (TableKey table, DataKey ID, String IDVal, DataKey column, String newVal) throws SQLException {
+    public static void updateSingleData (TableKey table, DataKey ID, String IDVal, DataKey column, String newVal) throws SQLException {
 
         while(!DBConnection.isConnected()) {
             DBConnection.setConnection();
@@ -67,8 +68,13 @@ public class DBManageData {
                 ps.setInt(1, Integer.parseInt(newVal));
                 break;
             }
-            default:
+            case FLOAT: {
+                ps.setInt(1, Integer.parseInt(newVal) * 100);
+                break;
+            }
+            default: {
                 ps.setString(1, newVal);
+            }
         }
 
         ps.setInt(2, Integer.parseInt(IDVal));
@@ -76,8 +82,37 @@ public class DBManageData {
         ps.execute();
     }
 
-    // SPECIAL CASE: delete USER -> this action will be protected by app locally (when any data, then cannot delete)
-    protected static void deleteRow(TableKey table, DataKey ID, String IDVal) throws SQLException {
+    public static void updateRow (TableKey table, DataKey ID, String IDVal, DataKey[] columns, String[] newVals) throws SQLException {
+        while(!DBConnection.isConnected()) {
+            DBConnection.setConnection();
+        }
+
+        String query = DBQuery.update(table, columns, ID);
+        PreparedStatement ps = DBConnection.getConnector().prepareStatement(query);
+
+        for (int i = 0; i < newVals.length; i++) {
+            switch (dataToType(columns[i])) {
+                case INT: {
+                    ps.setInt(i+1, Integer.parseInt(newVals[i]));
+                    break;
+                }
+                case FLOAT: {
+                    ps.setInt(i+1, Integer.parseInt(newVals[i]) * 100);
+                    break;
+                }
+                default: {
+                    ps.setString(i+1, newVals[i]);
+                }
+            }
+        }
+
+        ps.setInt(newVals.length + 1, Integer.parseInt(IDVal));
+
+        ps.execute();
+    }
+
+    // SPECIAL CASE: delete USER -> this action will be public by app locally (when any data, then cannot delete)
+    public static void deleteRow(TableKey table, DataKey ID, String IDVal) throws SQLException {
 
         while(!DBConnection.isConnected()) {
             DBConnection.setConnection();

@@ -1,4 +1,4 @@
-package main.java.databaseAccess;
+package databaseAccess;
 
 import java.sql.SQLException;
 import java.sql.Connection;
