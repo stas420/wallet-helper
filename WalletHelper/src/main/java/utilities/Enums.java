@@ -1,4 +1,4 @@
-package utilities;
+package main.java.utilities;
 
 public abstract class Enums {
 

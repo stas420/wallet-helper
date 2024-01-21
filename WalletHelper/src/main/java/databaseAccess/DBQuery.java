@@ -1,9 +1,9 @@
-package databaseAccess;
+package main.java.databaseAccess;
 
 //import static utilities.Enums.ifForeignKey;
 //import static utilities.Enums.foreignKeySource;
-import utilities.Enums.DataKey;
-import utilities.Enums.TableKey;
+import main.java.utilities.Enums.DataKey;
+import main.java.utilities.Enums.TableKey;
 
 // This class is made for SQL query construction and returning it as a String, which shall be
 // later parametrized with PreparedStatement in DBGetData and DBManageData.

@@ -1,8 +1,8 @@
-package databaseAccess;
+package main.java.databaseAccess;
 
-import utilities.Enums.TableKey;
-import utilities.Enums.DataKey;
-import static utilities.Enums.dataToType;
+import main.java.utilities.Enums.TableKey;
+import main.java.utilities.Enums.DataKey;
+import static main.java.utilities.Enums.dataToType;
 
 import java.sql.SQLException;
 import java.sql.PreparedStatement;

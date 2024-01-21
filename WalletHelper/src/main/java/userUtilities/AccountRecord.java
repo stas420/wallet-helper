@@ -1,7 +1,7 @@
-package userUtilities;
+package main.java.userUtilities;
 
 import java.util.Date;
-import utilities.stringUtils;
+import main.java.utilities.stringUtils;
 
 public class AccountRecord{
 

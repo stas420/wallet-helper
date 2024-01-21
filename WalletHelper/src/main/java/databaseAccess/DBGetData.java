@@ -1,10 +1,10 @@
-package databaseAccess;
+package main.java.databaseAccess;
 
-import userUtilities.GoalRecord;
-import userUtilities.UserRecord;
-import utilities.Enums.DataKey;
-import utilities.Enums.TableKey;
-import userUtilities.AccountRecord;
+import main.java.userUtilities.GoalRecord;
+import main.java.userUtilities.UserRecord;
+import main.java.utilities.Enums.DataKey;
+import main.java.utilities.Enums.TableKey;
+import main.java.userUtilities.AccountRecord;
 
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -23,7 +23,8 @@ public abstract class DBGetData {
         - [ ] getTransactionRows
         - [ ] getHistoryRows
      */
-    
+
+    // It will be useful when logging in a user
 
     public static Optional<UserRecord[]> getUserRows(int userId) {
         if (userId < 0)

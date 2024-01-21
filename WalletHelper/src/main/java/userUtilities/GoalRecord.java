@@ -1,9 +1,9 @@
-package userUtilities;
+package main.java.userUtilities;
 
 import java.util.Date;
 import java.util.Optional;
 
-import utilities.stringUtils;
+import main.java.utilities.stringUtils;
 
 public final class GoalRecord{
     int GoalID;

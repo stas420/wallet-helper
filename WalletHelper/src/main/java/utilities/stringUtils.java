@@ -1,4 +1,4 @@
-package utilities;
+package main.java.utilities;
 
 import java.util.Scanner;
 import java.util.Date;
