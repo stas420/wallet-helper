@@ -11,7 +11,7 @@ public abstract class DBConnection {
 
     private static final String DATABASE_URL = "jdbc:sqlite:./database.db";
 
-    protected static void setConnection(/*String user, String pass*/){
+    public static void setConnection(/*String user, String pass*/){
         try {
             // Establish a connection to the sqlite db
             Connection connection = DriverManager.getConnection(DATABASE_URL);

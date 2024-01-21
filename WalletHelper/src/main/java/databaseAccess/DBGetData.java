@@ -1,20 +1,119 @@
 package databaseAccess;
 
+import userUtilities.GoalRecord;
+import userUtilities.UserRecord;
 import utilities.Enums.DataKey;
 import utilities.Enums.TableKey;
-import static utilities.Enums.dataToType;
 import userUtilities.AccountRecord;
 
-import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Optional;
 
 // This class is made for reading data stored in the database, so for SELECT queries.
 // Should NOT return ResultSet type, something different is needed to be done.
 public abstract class DBGetData {
+
+    /*
+    TODO:
+        - [x] getUserRows
+        - [x] getAccountRows
+        - [x]  getGoalRows
+        - [ ] getTransactionRows
+        - [ ] getHistoryRows
+     */
+    
+
+    public static Optional<UserRecord[]> getUserRows(int userId) {
+        if (userId < 0)
+            return Optional.empty();
+
+        // SELECT * FROM users WHERE UserID={userId}
+        String query = DBQuery.select(TableKey.USERS, DataKey.UserID, String.valueOf(userId));
+        ResultSet result;
+        ArrayList<UserRecord> records = new ArrayList<>();
+
+        try (Statement statement = DBConnection.getConnector().createStatement()) {
+            result = statement.executeQuery(query);
+
+            while(result.next()) {
+                String[] results = new String[6];
+                for (int colIndex = 0; colIndex < 6; colIndex++) {
+                    results[colIndex] = result.getString(colIndex + 1);
+                }
+                UserRecord record = new UserRecord(results);
+                records.add(record);
+            }
+        }
+        catch (Exception e) {
+            // TODO log4j
+            e.printStackTrace();
+            return Optional.empty();
+        }
+        return Optional.of(records.toArray(new UserRecord[0]));
+    }
+
+    protected static Optional<AccountRecord[]> getAccountRows(int userID) {
+        if (userID < 0)
+            return Optional.empty();
+
+        // SELECT * FROM accounts WHERE UserID={userID}
+        String query = DBQuery.select(TableKey.ACCOUNTS, DataKey.UserID, String.valueOf(userID));
+        ResultSet result;
+        ArrayList<AccountRecord> records = new ArrayList<>();
+
+        try (Statement statement = DBConnection.getConnector().createStatement()) {
+            result = statement.executeQuery(query);
+
+            while(result.next()) {
+
+                // Gods forgive me for what I have done - I had to, The Nut must have been destroyed...
+                String[] results = new String[6];
+
+                for (int colIndex = 0; colIndex < 6; colIndex++) {
+                    results[colIndex] = result.getString(colIndex+1);
+                }
+                // kurwa... nie przyznaję się do tego gowna
+                AccountRecord record = new AccountRecord(results[0], results[1], results[2], results[3], results[4], results[5]); // ?????
+                records.add(record);
+            }
+
+        } catch (Exception e) {
+            // TODO log4j
+            e.printStackTrace();
+            return Optional.empty();
+        }
+        return Optional.of(records.toArray(new AccountRecord[]{}));
+    }
+    protected static Optional<GoalRecord[]> getGoalRows(int userId) {
+        if (userId < 0)
+            return Optional.empty();
+
+        // SELECT * FROM goals WHERE UserID={userId}
+        String query = DBQuery.select(TableKey.GOALS, DataKey.UserID, String.valueOf(userId));
+        ResultSet result;
+        ArrayList<GoalRecord> records = new ArrayList<>();
+
+        try (Statement statement = DBConnection.getConnector().createStatement()) {
+            result = statement.executeQuery(query);
+
+            while(result.next()) {
+                String[] results = new String[7];
+                for (int colIndex = 0; colIndex < 7; colIndex++) {
+                    results[colIndex] = result.getString(colIndex + 1);
+                }
+                GoalRecord record = new GoalRecord(results);
+                records.add(record);
+            }
+        }
+        catch (Exception e) {
+            // TODO log4j
+            e.printStackTrace();
+            return Optional.empty();
+        }
+        return Optional.of(records.toArray(new GoalRecord[0]));
+    }
 
     // getUserRecord - returns data from table Users corresponding to user
     protected static Optional<String> getUserRecord(int userId, DataKey col){
@@ -79,47 +178,8 @@ public abstract class DBGetData {
         return Optional.of(output);
     }
 
-    // TODO getManyAccountRecords
-
-    protected static Optional<AccountRecord[]> getAccountRows(int userID) {
-        if (userID < 0)
-            return Optional.empty();
-        
-        // SELECT * FROM accounts WHERE UserID={userID}
-        String query = DBQuery.select(TableKey.ACCOUNTS, DataKey.UserID, String.valueOf(userID));
-        ResultSet result;
-        ArrayList<AccountRecord> records = new ArrayList<>();
-
-        try (Statement statement = DBConnection.getConnector().createStatement()) {
-            result = statement.executeQuery(query);
-
-            while(result.next()) {
-
-                // Gods forgive me for what I have done - I had to, The Nut must have been destroyed...
-                String[] results = new String[6];
-
-                for (int colIndex = 0; colIndex < 6; colIndex++) {
-                    results[colIndex] = result.getString(colIndex+1);
-                }
-                // kurwa... nie przyznaję się do tego gowna
-                AccountRecord record = new AccountRecord(results[0], results[1], results[2], results[3], results[4], results[5]); // ?????
-                records.add(record);
-            }
-
-        } catch (Exception e) {
-            // TODO log4j
-            e.printStackTrace();
-            return Optional.empty();
-        }
-        return Optional.of(records.toArray(new AccountRecord[]{}));
-    }
-    /*
-    protected static Optional<String[][]> getAccountRows(int userId) {
-        if (userId < 0)
-            return Optional.empty();
 
 
-    }*/
     // getGoalRecord
     protected static Optional<String> getGoalRecord(int goalId, DataKey col){
 

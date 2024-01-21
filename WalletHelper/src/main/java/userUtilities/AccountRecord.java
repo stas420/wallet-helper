@@ -3,8 +3,16 @@ package userUtilities;
 import java.util.Date;
 import utilities.stringUtils;
 
-public class AccountRecord {
+public class AccountRecord{
 
+    public AccountRecord(String[] vals) {
+        AccID = Integer.parseInt(vals[0]);
+        UserID = Integer.parseInt(vals[1]);
+        Title = vals[2];
+        Val = Float.parseFloat(vals[3]) / 100;
+        Currency = vals[4];
+        CreateTimeStamp = stringUtils.parseEpochToDate(Integer.parseInt(vals[5]));
+    }
     public AccountRecord() {
         this.AccID = this.UserID = 0;
         this.Title = this.Currency = "";

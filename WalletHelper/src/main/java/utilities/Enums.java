@@ -29,7 +29,7 @@ public abstract class Enums {
     }
 
     public enum TableKey {
-        USERS("Users"), ACCOUNTS("Accounts"), GOALS("Goals"), HISTORY("History");
+        USERS("users"), ACCOUNTS("accounts"), GOALS("goals"), HISTORY("history");
 
         public final String tableKey;
 
