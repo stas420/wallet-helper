@@ -1,11 +1,15 @@
 package userUtilities;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Optional;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import utilities.stringUtils;
 
 public final class GoalRecord{
+    private final static Logger logger = LogManager.getLogger(GoalRecord.class);
     int GoalID;
     int UserID;
     String Title;
@@ -17,7 +21,10 @@ public final class GoalRecord{
 
     public GoalRecord(String[] vals) {
         if (vals.length != 7) {
-            //TODO log4j
+            logger.error("Wrong array size provided to HistoryRecord constructor.\n" +
+                    "Array provided: " + Arrays.toString(vals) + "\n" +
+                    "Expected length: 7\n" +
+                    "Got: " + vals.length);
             System.err.println("Wrong length of array stoopid");
             return;
         }
@@ -29,4 +36,5 @@ public final class GoalRecord{
         CreateTimeStamp = stringUtils.parseEpochToDate(Integer.parseInt(vals[5]));
         Deadline = vals[6];
     }
+
 }

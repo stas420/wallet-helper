@@ -1,8 +1,11 @@
 package userUtilities;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Optional;
 import utilities.stringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class HistoryRecord {
     public int transId;
@@ -14,11 +17,15 @@ public class HistoryRecord {
     public String title;
     public Date timeStamp;
 
+    private static final Logger logger = LogManager.getLogger(HistoryRecord.class);
 
     public HistoryRecord(String[] vals) {
         if (vals.length != 8) {
             System.err.println("Array is the wrong size you silly goose");
-            // TODO log4j
+            logger.error("Wrong array size provided to HistoryRecord constructor.\n" +
+                    "Array provided: " + Arrays.toString(vals) + "\n" +
+                    "Expected length: 8\n" +
+                    "Got: " + vals.length);
             return;
         }
         transId = Integer.parseInt(vals[0]);
@@ -42,5 +49,6 @@ public class HistoryRecord {
         title = Title;
         timeStamp = stringUtils.parseEpochToDate(Integer.parseInt(TimeStamp));
     }
+
 
 }

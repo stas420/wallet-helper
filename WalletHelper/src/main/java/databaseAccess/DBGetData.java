@@ -6,6 +6,10 @@ import utilities.Enums.DataKey;
 import utilities.Enums.TableKey;
 import userUtilities.AccountRecord;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -15,12 +19,13 @@ import java.util.Optional;
 // Should NOT return ResultSet type, something different is needed to be done.
 public abstract class DBGetData {
 
+    private static final Logger logger = LogManager.getLogger(DBGetData.class);
+
     /*
     TODO:
         - [x] getUserRows
         - [x] getAccountRows
         - [x]  getGoalRows
-        - [ ] getTransactionRows
         - [ ] getHistoryRows
      */
 
@@ -34,10 +39,10 @@ public abstract class DBGetData {
         ResultSet result;
         ArrayList<UserRecord> records = new ArrayList<>();
 
-        try(Statement statement = DBConnection.getConnector().createStatement()) {
+        try (Statement statement = DBConnection.getConnector().createStatement()) {
             result = statement.executeQuery(query);
 
-            while(result.next()) {
+            while (result.next()) {
                 String[] results = new String[6];
                 for (int colIndex = 0; colIndex < 6; colIndex++) {
                     results[colIndex] = result.getString(colIndex + 1);
@@ -45,10 +50,11 @@ public abstract class DBGetData {
                 UserRecord record = new UserRecord(results);
                 records.add(record);
             }
-        }
-        catch (Exception e) {
-            // TODO log4j
-            e.printStackTrace();
+        } catch (SQLException e) {
+            logger.error("Couldn't execute query `" + query + "`. Returning an empty optional.\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
         if (records.isEmpty())
@@ -68,7 +74,7 @@ public abstract class DBGetData {
         try (Statement statement = DBConnection.getConnector().createStatement()) {
             result = statement.executeQuery(query);
 
-            while(result.next()) {
+            while (result.next()) {
                 String[] results = new String[6];
                 for (int colIndex = 0; colIndex < 6; colIndex++) {
                     results[colIndex] = result.getString(colIndex + 1);
@@ -76,10 +82,11 @@ public abstract class DBGetData {
                 UserRecord record = new UserRecord(results);
                 records.add(record);
             }
-        }
-        catch (Exception e) {
-            // TODO log4j
-            e.printStackTrace();
+        } catch (SQLException e) {
+            logger.error("Couldn't execute query `" + query + "`. Returning an empty optional.\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
         return Optional.of(records.toArray(new UserRecord[0]));
@@ -97,26 +104,29 @@ public abstract class DBGetData {
         try (Statement statement = DBConnection.getConnector().createStatement()) {
             result = statement.executeQuery(query);
 
-            while(result.next()) {
+            while (result.next()) {
 
                 // Gods forgive me for what I have done - I had to, The Nut must have been destroyed...
                 String[] results = new String[6];
 
                 for (int colIndex = 0; colIndex < 6; colIndex++) {
-                    results[colIndex] = result.getString(colIndex+1);
+                    results[colIndex] = result.getString(colIndex + 1);
                 }
                 // kurwa... nie przyznaję się do tego gowna
                 AccountRecord record = new AccountRecord(results[0], results[1], results[2], results[3], results[4], results[5]); // ?????
                 records.add(record);
             }
 
-        } catch (Exception e) {
-            // TODO log4j
-            e.printStackTrace();
+        } catch (SQLException e) {
+            logger.error("Couldn't execute query `" + query + "`. Returning an empty optional.\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
         return Optional.of(records.toArray(new AccountRecord[]{}));
     }
+
     protected static Optional<GoalRecord[]> getGoalRows(int userId) {
         if (userId < 0)
             return Optional.empty();
@@ -129,7 +139,7 @@ public abstract class DBGetData {
         try (Statement statement = DBConnection.getConnector().createStatement()) {
             result = statement.executeQuery(query);
 
-            while(result.next()) {
+            while (result.next()) {
                 String[] results = new String[7];
                 for (int colIndex = 0; colIndex < 7; colIndex++) {
                     results[colIndex] = result.getString(colIndex + 1);
@@ -137,17 +147,18 @@ public abstract class DBGetData {
                 GoalRecord record = new GoalRecord(results);
                 records.add(record);
             }
-        }
-        catch (Exception e) {
-            // TODO log4j
-            e.printStackTrace();
+        } catch (SQLException e) {
+            logger.error("Couldn't execute query `" + query + "`. Returning an empty optional.\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
         return Optional.of(records.toArray(new GoalRecord[0]));
     }
 
     // getUserRecord - returns data from table Users corresponding to user
-    protected static Optional<String> getUserRecord(int userId, DataKey col){
+    protected static Optional<String> getUserRecord(int userId, DataKey col) {
 
         if (userId < 0)
             return Optional.empty();
@@ -156,20 +167,24 @@ public abstract class DBGetData {
         ResultSet result;
 
         // SELECT ? FROM table WHERE column = ?
-        try(Statement statement = DBConnection.getConnector().createStatement()) {
-            result = statement.executeQuery(DBQuery.select(TableKey.USERS, DataKey.UserID, String.valueOf(userId), col));
+        String query = DBQuery.select(TableKey.USERS, DataKey.UserID, String.valueOf(userId), col);
+        try (Statement statement = DBConnection.getConnector().createStatement()) {
+            result = statement.executeQuery(query);
             result.next();
             try {
                 output = result.getString(1);
-            } catch (Exception e) {
-                // TODO log4j
-                System.err.println("Couldn't get output");
-                e.printStackTrace();
+            } catch (SQLException e) {
+                logger.error("Couldn't get value from the 1st column. Returning an empty optional.\n" +
+                        "SQL state: " + e.getSQLState() + "\n" +
+                        "SQLException message: " + e.getMessage() + "\n" +
+                        "Stack trace: " + e.getStackTrace());
                 return Optional.empty();
             }
-        } catch(Exception e) {
-            // TODO log4j
-            System.err.println("Couldn't prepare statement");
+        } catch (SQLException e) {
+            logger.error("Couldn't execute query `" + query + "`. Returning an empty optional.\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
 
@@ -178,7 +193,7 @@ public abstract class DBGetData {
     }
 
     // getAccountRecord
-    protected static Optional<String> getAccountRecord(int accId, DataKey col){
+    protected static Optional<String> getAccountRecord(int accId, DataKey col) {
 
         if (accId < 0)
             return Optional.empty();
@@ -187,21 +202,25 @@ public abstract class DBGetData {
         ResultSet result;
 
         // SELECT ? FROM table WHERE column = ?
-        try(Statement statement = DBConnection.getConnector().createStatement()) {
-            result = statement.executeQuery(DBQuery.select(TableKey.ACCOUNTS, DataKey.AccID, String.valueOf(accId), col));
+        String query = DBQuery.select(TableKey.ACCOUNTS, DataKey.AccID, String.valueOf(accId), col);
+        try (Statement statement = DBConnection.getConnector().createStatement()) {
+            result = statement.executeQuery(query);
             result.next();
 
             try {
                 output = result.getString(1);
-            } catch (Exception e) {
-                // TODO log4j
-                System.err.println("Couldn't get output");
-                e.printStackTrace();
+            } catch (SQLException e) {
+                logger.error("Couldn't get value from the 1st column. Returning an empty optional.\n" +
+                        "SQL state: " + e.getSQLState() + "\n" +
+                        "SQLException message: " + e.getMessage() + "\n" +
+                        "Stack trace: " + e.getStackTrace());
                 return Optional.empty();
             }
-        } catch(Exception e) {
-            // TODO log4j
-            System.err.println("Couldn't prepare statement");
+        } catch (SQLException e) {
+            logger.error("Couldn't execute query `" + query + "`. Returning an empty optional.\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
 
@@ -210,9 +229,8 @@ public abstract class DBGetData {
     }
 
 
-
     // getGoalRecord
-    protected static Optional<String> getGoalRecord(int goalId, DataKey col){
+    protected static Optional<String> getGoalRecord(int goalId, DataKey col) {
 
         if (goalId < 0)
             return Optional.empty();
@@ -221,81 +239,32 @@ public abstract class DBGetData {
         ResultSet result;
 
         // SELECT ? FROM table WHERE column = ?
-        try(Statement statement = DBConnection.getConnector().createStatement()) {
-            result = statement.executeQuery(DBQuery.select(TableKey.GOALS, DataKey.GoalID, String.valueOf(goalId), col));
+        String query = DBQuery.select(TableKey.GOALS, DataKey.GoalID, String.valueOf(goalId), col);
+        try (Statement statement = DBConnection.getConnector().createStatement()) {
+            result = statement.executeQuery(query);
             result.next();
 
             try {
                 output = result.getString(1);
-            } catch (Exception e) {
-                // TODO log4j
-                System.err.println("Couldn't get output");
-                e.printStackTrace();
+            } catch (SQLException e) {
+                logger.error("Couldn't get value from the 1st column. Returning an empty optional.\n" +
+                        "SQL state: " + e.getSQLState() + "\n" +
+                        "SQLException message: " + e.getMessage() + "\n" +
+                        "Stack trace: " + e.getStackTrace());
                 return Optional.empty();
             }
-        } catch(Exception e) {
-            // TODO log4j
-            System.err.println("Couldn't prepare statement");
+        } catch (SQLException e) {
+            logger.error("Couldn't execute query `" + query + "`. Returning an empty optional.\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
 
         // At this point we have a result that contains the queried response
         return Optional.of(output);
     }
-
-    // getManyGoalRecords
-    // getTransactionRecord
-    protected static Optional<String> getTransactionRecord(int transId, DataKey col){
-
-        if (transId < 0)
-            return Optional.empty();
-
-        String output = "";
-        ResultSet result;
-
-        // SELECT ? FROM table WHERE column = ?
-        try(Statement statement = DBConnection.getConnector().createStatement()) {
-            result = statement.executeQuery(DBQuery.select(TableKey.HISTORY, DataKey.TransID, String.valueOf(transId), col));
-            result.next();
-
-            try {
-                output = result.getString(1);
-            } catch (Exception e) {
-                // TODO log4j
-                System.err.println("Couldn't get output");
-                e.printStackTrace();
-                return Optional.empty();
-            }
-        } catch(Exception e) {
-            // TODO log4j
-            System.err.println("Couldn't prepare statement");
-            return Optional.empty();
-        }
-
-        // At this point we have a result that contains the queried response
-        return Optional.of(output);
-    }
-
-    // getManyTransactionRecords
-
-    /*
-    public static void main(String[] args) throws SQLException {
-        DataKey[] tab1 = { DataKey.UserID, DataKey.Title, DataKey.Val, DataKey.Currency, DataKey.CreateTimeStamp };
-        String[] vals1 = { "2", "ugabfdvga", "213.37", "gbp", "1705610700"};
-        String[] vals2 = {"2", "hafwuaiwf", "3617.89", "pln", "1705610800"};
-        DBManageData.insertRow(TableKey.ACCOUNTS, tab1, vals1);
-        DBManageData.insertRow(TableKey.ACCOUNTS, tab1, vals2);
-
-
-        AccountRecord[] accountRecords = getAccountRows(2).get();
-        for (AccountRecord account : accountRecords) {
-            System.out.println(account.toString());
-        }
-    } */
 }
-
-
-
 /*
 SELECT UserID FROM users WHERE UserName='jakiesimie';
 

@@ -1,0 +1,22 @@
+15:20:05.750 [main] ERROR userUtilities.HistoryRecord - Wrong array size provided to HistoryRecord constructor.
+Expected: 8
+Got: 2
+15:26:17.629 [main] ERROR userUtilities.GoalRecord - Wrong array size provided to HistoryRecord constructor.
+Expected: 7
+Got: 3
+15:28:17.238 [main] ERROR userUtilities.HistoryRecord - Wrong array size provided to HistoryRecord constructor.
+Array provided: [aaaa, jebac orzecha]
+Expected length: 8
+Got: 2
+15:29:33.380 [main] ERROR userUtilities.GoalRecord - Wrong array size provided to HistoryRecord constructor.
+Array provided: [aaaa, fkea, faa]
+Expected length: 8
+Got: 3
+15:32:20.283 [main] ERROR userUtilities.HistoryRecord - Wrong array size provided to HistoryRecord constructor.
+Array provided: [test, chuj ci w dupe]
+Expected length: 6
+Got: 2
+15:32:51.555 [main] ERROR userUtilities.UserRecord - Wrong array size provided to UserRecord constructor.
+Array provided: [test, chuj ci w dupe]
+Expected length: 6
+Got: 2

@@ -6,12 +6,17 @@ import java.util.Date;
 import java.util.Optional;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 import databaseAccess.DBGetData;
 import databaseAccess.DBManageData;
 import utilities.Enums;
 import utilities.Enums.DataKey;
 
 public class LocalUser {
+
+    private final static Logger logger = LogManager.getLogger(LocalUser.class);
 
     public LocalUser (String username, String password) {
         pullUserFromDB(username, password);
@@ -22,11 +27,12 @@ public class LocalUser {
         Optional<UserRecord[]> userRecords = DBGetData.getUserRows(username);
 
         if (userRecords.isEmpty()) {
-            // TODO log4j
+            logger.error("DBGetData.getUserRows(" + username + ") returned an empty optional.\n" +
+                    "Passed username: " + username);
             // do something scary ;3
             // (UwU 👉👈)
-            System.out.println("ORzech to kurwa jebanaa");
-            return;}
+            return;
+        }
 
 
         // Check if password is correct  V IMPORTANT! (this pleases the Java gods)
@@ -35,9 +41,11 @@ public class LocalUser {
                 .findFirst();
 
         // Check if any matched
-        if (goodUser.isEmpty())
-            // TODO log4j
+        if (goodUser.isEmpty()) {
+            logger.warn("None of the users from userRecords have matching passwords.\n" +
+                    "Searched password: " + password);
             return;
+        }
         this.userInfo = goodUser.get();
     }
 
@@ -50,10 +58,10 @@ public class LocalUser {
             DBManageData.updateRow(Enums.TableKey.USERS, DataKey.UserID, String.valueOf(userInfo.UserID), columns, values);
         }
         catch (SQLException e) {
-            // TODO log4j
-            System.out.println("jebalem matke orzechowi tej cipie");
-            e.printStackTrace();
-            return;
+            logger.error("Couldn't push user " + userInfo.UserName + "to DB.\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
         }
     }
 
@@ -64,10 +72,8 @@ public class LocalUser {
 
         if (userRecords.isPresent()) {
             System.out.println(userRecords.get().length);
-            // TODO log4j
-            System.out.println("ORzech to pedofeel\n" +
-                    "A tak bardziej serio to już istnieje użytkownik o tym usernamie");
-
+            logger.warn("User with this username already exists.\n" +
+                    "Username in question: " + username);
             return Optional.empty();
         }
 
@@ -79,9 +85,10 @@ public class LocalUser {
 
             DBManageData.insertRow(Enums.TableKey.USERS, columns, values);
         } catch (SQLException e) {
-            // TODO log4j
-            System.out.println("Couldn't create a new record in users");
-            e.printStackTrace();
+            logger.error("Couldn't push user " + username + "to DB.\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
 
@@ -106,9 +113,10 @@ public class LocalUser {
             DBManageData.updateSingleData(Enums.TableKey.USERS, DataKey.UserID, String.valueOf(user.userInfo.UserID),
                                             DataKey.mainAccount, String.valueOf(user.accountsInfo.get(0).AccID));
         } catch (SQLException e) {
-            // TODO log4j
-            System.out.println("Couldn't create a new record in accounts for newly created user ;c");
-            e.printStackTrace();
+            logger.error("Couldn't update user's " + user.userInfo.UserName + "main account in DB.\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
 

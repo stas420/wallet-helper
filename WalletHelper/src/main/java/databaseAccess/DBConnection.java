@@ -5,11 +5,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 // This class is made for database connection management: it opens and closes the connection
 // with database and holds its current status (whether it is set or not).
 public abstract class DBConnection {
 
     private static final String DATABASE_URL = "jdbc:sqlite:./database.db";
+    private static final Logger logger = LogManager.getLogger(DBConnection.class);
 
     public static void setConnection(/*String user, String pass*/){
         try {
@@ -19,7 +22,10 @@ public abstract class DBConnection {
             mainConnector = connection;
         }
         catch(SQLException e) {
-            e.printStackTrace();
+            logger.fatal("Couldn't establish a connection with the database.\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "Stack trace: " + e.getStackTrace() + "\n");
         }
     }
 
