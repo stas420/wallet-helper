@@ -1,6 +1,10 @@
 package userUtilities;
 
 import java.util.Date;
+import java.util.Optional;
+import java.util.ArrayList;
+
+import databaseAccess.DBGetData;
 import utilities.stringUtils;
 
 public class AccountRecord{

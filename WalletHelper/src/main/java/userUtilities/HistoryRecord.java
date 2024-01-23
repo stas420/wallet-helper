@@ -49,6 +49,4 @@ public class HistoryRecord {
         title = Title;
         timeStamp = stringUtils.parseEpochToDate(Integer.parseInt(TimeStamp));
     }
-
-
 }

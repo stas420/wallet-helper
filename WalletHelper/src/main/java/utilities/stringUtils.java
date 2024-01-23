@@ -30,6 +30,13 @@ public abstract class stringUtils {
     public static Date parseEpochToDate(long epoch) {
         return new Date(epoch * 1000);
     }
+
+    // checks if credential to be queried to database is valid, i.e. does not have any unwanted characters
+    // more should be added soon
+    public static boolean isCredentialValid(String cred) {
+        return !cred.contains("(") && !cred.contains(")") && !cred.contains("\\") && !cred.contains(";") && !cred.contains(",")
+                && !cred.contains(":") && !cred.contains(" ") && !cred.contains("/") && !cred.contains("*");
+    }
 }
 /*
     public static String currentTimeStamp() {

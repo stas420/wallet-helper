@@ -1,6 +1,7 @@
 package databaseAccess;
 
 import userUtilities.GoalRecord;
+import userUtilities.HistoryRecord;
 import userUtilities.UserRecord;
 import utilities.Enums.DataKey;
 import utilities.Enums.TableKey;
@@ -22,11 +23,11 @@ public abstract class DBGetData {
     private static final Logger logger = LogManager.getLogger(DBGetData.class);
 
     /*
-    TODO:
+    TODO: ready ;p
         - [x] getUserRows
         - [x] getAccountRows
         - [x]  getGoalRows
-        - [ ] getHistoryRows
+        - [x] getHistoryRows
      */
 
     // It will be useful when logging in a user
@@ -127,7 +128,7 @@ public abstract class DBGetData {
         return Optional.of(records.toArray(new AccountRecord[]{}));
     }
 
-    protected static Optional<GoalRecord[]> getGoalRows(int userId) {
+    public static Optional<GoalRecord[]> getGoalRows(int userId) {
         if (userId < 0)
             return Optional.empty();
 
@@ -158,7 +159,7 @@ public abstract class DBGetData {
     }
 
     // getUserRecord - returns data from table Users corresponding to user
-    protected static Optional<String> getUserRecord(int userId, DataKey col) {
+    public static Optional<String> getUserRecord(int userId, DataKey col) {
 
         if (userId < 0)
             return Optional.empty();
@@ -193,7 +194,7 @@ public abstract class DBGetData {
     }
 
     // getAccountRecord
-    protected static Optional<String> getAccountRecord(int accId, DataKey col) {
+    public static Optional<String> getAccountRecord(int accId, DataKey col) {
 
         if (accId < 0)
             return Optional.empty();
@@ -228,9 +229,8 @@ public abstract class DBGetData {
         return Optional.of(output);
     }
 
-
     // getGoalRecord
-    protected static Optional<String> getGoalRecord(int goalId, DataKey col) {
+    public static Optional<String> getGoalRecord(int goalId, DataKey col) {
 
         if (goalId < 0)
             return Optional.empty();
@@ -263,6 +263,43 @@ public abstract class DBGetData {
 
         // At this point we have a result that contains the queried response
         return Optional.of(output);
+    }
+
+    // TODO Didn't check if it works - didn't care~
+    public static Optional<HistoryRecord[]> getHistoryRows(int userID) {
+        if (userID < 0)
+            return Optional.empty();
+
+        // SELECT * FROM history WHERE UserID={userID}
+        String query = DBQuery.select(TableKey.HISTORY, DataKey.UserID, String.valueOf(userID));
+        ResultSet result;
+        ArrayList<HistoryRecord> records = new ArrayList<>();
+
+        try (Statement statement = DBConnection.getConnector().createStatement()) {
+            result = statement.executeQuery(query);
+
+            while (result.next()) {
+
+                // Carrying on my previous sins, this project is fucking hell
+                // Yep, we *know* that it's eight
+                String[] results = new String[8];
+
+                for (int colIndex = 0; colIndex < 8; colIndex++) {
+                    results[colIndex] = result.getString(colIndex + 1);
+                }
+                // kurwa... nie przyznaję się do tego gowna
+                HistoryRecord record = new HistoryRecord(results); // ?????
+                records.add(record);
+            }
+
+        } catch (SQLException e) {
+            logger.error("Couldn't execute query `" + query + "`. Returning an empty optional.\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
+            return Optional.empty();
+        }
+        return Optional.of(records.toArray(new HistoryRecord[]{}));
     }
 }
 /*
