@@ -19,33 +19,44 @@ import static utilities.stringUtils.isCredentialValid;
 public class LocalUser {
 
     // Tested 24/01/24 00:13
-    public static LocalUser logIn (String username, String password) {
+    public static Optional<LocalUser> logIn (String username, String password) {
 
         LocalUser localUser = new LocalUser();
-        localUser.pullUserFromDB(username, password);
+        pullUserResult result = localUser.pullUserFromDB(username, password);
+
+        if (result == pullUserResult.INVALID_CRED) {
+            logger.warn("logIn - invalid credentials, empty user");
+            return Optional.empty();
+        }
 
         localUser.pullAllAccountsFromDB();
         localUser.pullAllGoalsFromDB();
         localUser.pullAllHistoryFromDB();
-        return localUser;
+        return Optional.of(localUser);
     }
 
     // Tested via logIn() 24/01/24 00:13
-    private void pullUserFromDB(String username, String password) {
+    private enum pullUserResult {
+        INVALID_USERNAME,
+        INVALID_CRED,
+        NO_SUCH_USER,
+        OK
+    }
+    private pullUserResult pullUserFromDB(String username, String password) {
 
         if (!isCredentialValid(username)) {
             logger.error("in pullUserFromDB - invalid username: " + username);
-            return;
+            return pullUserResult.INVALID_USERNAME;
         }
 
         Optional<UserRecord[]> userRecords = DBGetData.getUserRows(username);
 
         if (userRecords.isEmpty()) {
-            logger.error("DBGetData.getUserRows(" + username + ") returned an empty optional.\n" +
+            logger.warn("DBGetData.getUserRows(" + username + ") returned an empty optional.\n" +
                     "Passed username: " + username);
             // do something scary ;3
             // (UwU 👉👈)
-            return;
+            return pullUserResult.NO_SUCH_USER;
         }
 
         // Check if password is correct  V IMPORTANT! (this pleases the Java gods)
@@ -57,10 +68,11 @@ public class LocalUser {
         if (goodUser.isEmpty()) {
             logger.warn("None of the users from userRecords have matching passwords.\n" +
                     "Searched password: " + password);
-            return;
+            return pullUserResult.INVALID_CRED;
         }
 
         this.userInfo = goodUser.get();
+        return pullUserResult.OK;
     }
 
     // part of registerNewUser
@@ -109,7 +121,7 @@ public class LocalUser {
             return Optional.empty();
         }
 
-        LocalUser user = logIn(username, password);
+        LocalUser user = logIn(username, password).get();
 
         try {
             Date date = new Date();

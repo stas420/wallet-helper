@@ -1,67 +1,143 @@
 package graphicInterface;
 
+import userUtilities.LocalUser;
+
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.awt.Color;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.awt.Font;
+
 
 public class MainWindow {
 
-    private void addUsernameLabel(String username) {
-        JLabel label = new JLabel ("Hello, " + username + "!");
-        label.setBounds(15,15,150,20);
-        label.setHorizontalTextPosition(SwingConstants.LEFT);
-        label.setVerticalTextPosition(SwingConstants.TOP);
-        label.setFont(new Font("Cambria Math", Font.BOLD, 20));
-        label.setForeground(new Color(219,219,219));
+    // panel1 - left
+    // panel2 - middle
+    // panel3 - right
 
-        this.mainFrame.add(label);
+    private void setFrame() {
+        SwingUtilities.invokeLater(() ->
+        {
+            //ImageIcon icon = new ImageIcon("./wallet-icon.ico");
+            //mainFrame.setIconImage(icon.getImage());
+
+            mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            mainFrame.getContentPane().setBackground(new Color(38, 38, 38));
+            mainFrame.setSize(1366, 768);
+            mainFrame.setResizable(false);
+
+
+            GridBagLayout mainGridLayout = new GridBagLayout();
+            mainFrame.setLayout(mainGridLayout);
+
+            GridLayout tablesGridLayout = new GridLayout(1, 3);
+            tablesPanel.setLayout(tablesGridLayout);
+
+            final GridBagConstraints topRow = new GridBagConstraints();
+            topRow.gridx = 0;
+            topRow.gridy = 0;
+            topRow.weightx = 1.0;
+            topRow.weighty = 0.2; // 20% of the height
+            topRow.fill = GridBagConstraints.BOTH;
+
+            setTopRibbonPanel("Anon");
+            topRibbonPanel.setBackground(Color.blue);
+            mainFrame.add(topRibbonPanel, topRow);
+
+            final GridBagConstraints bottomRow = new GridBagConstraints();
+            bottomRow.gridx = 0;
+            bottomRow.gridy = 1;
+            bottomRow.weightx = 1.0;
+            bottomRow.weighty = 0.8; // 80% of the height
+            bottomRow.fill = GridBagConstraints.BOTH;
+
+            tablesPanel.add(leftPanel);
+            tablesPanel.add(centerPanel);
+            tablesPanel.add(rightPanel);
+
+            setPanels();
+
+            mainFrame.add(tablesPanel, bottomRow);
+            mainFrame.setVisible(true);
+        });
     }
 
-    private void addDateLabel() {
-        DateFormat df = new SimpleDateFormat("dd-mm-yyyy");
-        Date d = new Date();
+    private void setTopRibbonPanel(String username) {
+        topRibbonPanel.setLayout(new BorderLayout());
 
-        JLabel label = new JLabel ("Today's date:  " + df.format(d));
+        JPanel textPanel = new JPanel(new BorderLayout());
+        textPanel.setBorder(new EmptyBorder(new Insets(10, 20, 10, 20)));
+        JLabel helloLabel = new JLabel("Hello, " + username + "!");
+        helloLabel.setFont(new Font("Comic Sans", Font.BOLD, 30));
+        helloLabel.setForeground(new Color(0, 0, 0));
+        textPanel.add(helloLabel, BorderLayout.NORTH);
 
-        label.setBounds(15, 50, 190, 20);
-        label.setHorizontalTextPosition(SwingConstants.LEFT);
-        label.setVerticalTextPosition(SwingConstants.TOP);
-        label.setFont(new Font("Cambria Math", Font.PLAIN, 16));
-        label.setForeground(new Color(219,219,219));
+        Date current = new Date();
+        JLabel dateLabel = new JLabel(current.toString());
+        textPanel.add(dateLabel);
 
-        this.mainFrame.add(label);
+        Timer timer = new Timer(1000, e -> {
+            updateLabel(dateLabel); // Update the label every second
+        });
+        timer.start(); // Start the timer
+
+        topRibbonPanel.add(textPanel, BorderLayout.WEST);
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
+
+
+        JButton changeInfoButton = new JButton("Change ur info");
+        JButton refreshAllButton = new JButton("Refresh All");
+        JButton logOutButton = new JButton("Log Out");
+
+        buttonPanel.add(changeInfoButton);
+        buttonPanel.add(refreshAllButton);
+        buttonPanel.add(logOutButton);
+
+        topRibbonPanel.add(buttonPanel, BorderLayout.EAST);
     }
 
-    private void addFirstTable() {
-        // DefaultTableModel ma opcję dodawania wierszy/kolumn/whatever, można zautomatyzować tworzenie tabeli
-        // zamiast hardcode;ować je
-        JTable tab = new JTable(new DefaultTableModel(new Object[]{"col1", "col2"}, 5));
-        //...
+    private static void updateLabel(JLabel label) {
+        label.setText((new Date()).toString());
     }
 
-    private void setFrame(String username) {
+    private void setPanels() {
+        // TODO reach panels classes
+        // ...
 
-        this.mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.mainFrame.getContentPane().setBackground(new Color(38,38,38));
-        this.mainFrame.setSize(1366,768);
-        this.mainFrame.setResizable(false);
-        this.mainFrame.setLayout(null);
 
-        this.addUsernameLabel(username);
-        this.addDateLabel();
-        this.addFirstTable();
-
-        this.mainFrame.setVisible(true);
     }
 
-    JFrame mainFrame = new JFrame();
+    private static JPanel leftPanel = new JPanel();
+    private static JPanel centerPanel = new JPanel();
+    private static JPanel rightPanel = new JPanel();
+    private static JPanel topRibbonPanel = new JPanel();
+    private static JPanel tablesPanel = new JPanel();
+
+    private static JFrame mainFrame = new JFrame("Wallet Helper");
+
+    public static JFrame getMainFrame() {
+        return mainFrame;
+    }
+
+    public static JPanel getLeftPanel() {
+        return leftPanel;
+    }
+
+    public static JPanel getCenterPanel() {
+        return centerPanel;
+    }
+
+    public static JPanel getRightPanel() {
+        return rightPanel;
+    }
 
     public static void main(String[] args) {
         MainWindow mw = new MainWindow();
-        mw.setFrame("Nutt");
+        mw.setFrame();
     }
 }
+
+
