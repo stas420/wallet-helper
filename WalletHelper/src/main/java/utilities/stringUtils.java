@@ -35,8 +35,8 @@ public abstract class stringUtils {
     // more should be added soon
     public static boolean isCredentialValid(String cred) {
         return !cred.contains("(") && !cred.contains(")") && !cred.contains("\\") && !cred.contains(";") && !cred.contains(",")
-                && !cred.contains(":") && !cred.contains(" ") && !cred.contains("/") && !cred.contains("*");
-    }
+                && !cred.contains(":") &&  !cred.contains("/") && !cred.contains("*");
+    } //!cred.contains(" ") &&
 }
 /*
     public static String currentTimeStamp() {

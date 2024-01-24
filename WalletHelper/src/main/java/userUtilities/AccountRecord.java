@@ -15,7 +15,7 @@ public class AccountRecord{
         Title = vals[2];
         Val = Float.parseFloat(vals[3]) / 100;
         Currency = vals[4];
-        CreateTimeStamp = stringUtils.parseEpochToDate(Integer.parseInt(vals[5]));
+        CreateTimeStamp = stringUtils.parseEpochToDate(Long.parseLong(vals[5]));
     }
     public AccountRecord() {
         this.AccID = this.UserID = 0;

@@ -20,3 +20,30 @@ Got: 2
 Array provided: [test, chuj ci w dupe]
 Expected length: 6
 Got: 2
+00:02:47.187 [main] ERROR userUtilities.GoalRecord - Wrong array size provided to HistoryRecord constructor.
+Array provided: [1, 1, orzech, 42069, 213700, to, 1706054308000]
+Expected length: 7
+Got: 7
+00:37:41.194 [main] WARN  userUtilities.LocalUser - None of the users from userRecords have matching passwords.
+Searched password: aaaaa
+00:38:32.730 [main] WARN  userUtilities.LocalUser - None of the users from userRecords have matching passwords.
+Searched password: aaaaa
+00:40:00.095 [main] ERROR userUtilities.LocalUser - pushNewAccountToDB - credential error - title: na dziadka do orzechów | currency:  cbln
+00:40:00.113 [main] ERROR databaseAccess.DBGetData - Couldn't execute query `SELECT ValBefore FROM accounts WHERE AccID='4'`. Returning an empty optional.
+SQL state: null
+SQLException message: [SQLITE_ERROR] SQL error or missing database (no such column: ValBefore)
+Stack trace: [Ljava.lang.StackTraceElement;@7eecb5b8
+00:40:00.118 [main] ERROR userUtilities.LocalUser - pushNewHistoryToDB - couldn't reach valBefore
+credentials: accID: 4 userID: 3
+00:44:04.934 [main] ERROR databaseAccess.DBGetData - Couldn't execute query `SELECT ValBefore FROM accounts WHERE AccID='4'`. Returning an empty optional.
+SQL state: null
+SQLException message: [SQLITE_ERROR] SQL error or missing database (no such column: ValBefore)
+Stack trace: [Ljava.lang.StackTraceElement;@50378a4
+00:44:04.946 [main] ERROR userUtilities.LocalUser - pushNewHistoryToDB - couldn't reach valBefore
+credentials: accID: 4 userID: 3
+00:49:29.110 [main] ERROR databaseAccess.DBGetData - Couldn't execute query `SELECT ValBefore FROM accounts WHERE AccID='1'`. Returning an empty optional.
+SQL state: null
+SQLException message: [SQLITE_ERROR] SQL error or missing database (no such column: ValBefore)
+Stack trace: [Ljava.lang.StackTraceElement;@60f00693
+00:49:29.120 [main] ERROR userUtilities.LocalUser - pushNewHistoryToDB - couldn't reach valBefore
+credentials: accID: 1 userID: 1

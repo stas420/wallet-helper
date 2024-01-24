@@ -35,7 +35,7 @@ public class HistoryRecord {
         change = Float.parseFloat(vals[4]) / 100;
         currency = vals[5];
         title = vals[6];
-        timeStamp = stringUtils.parseEpochToDate(Integer.parseInt(vals[7]));
+        timeStamp = stringUtils.parseEpochToDate(Long.parseLong(vals[7]));
     }
 
     public HistoryRecord(String transID, String userID, String accID, String ValBefore, String Change, String Currency,

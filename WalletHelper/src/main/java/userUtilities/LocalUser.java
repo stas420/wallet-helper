@@ -1,9 +1,6 @@
 package userUtilities;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.Logger;
@@ -13,6 +10,7 @@ import databaseAccess.DBGetData;
 import databaseAccess.DBManageData;
 import utilities.Enums;
 import utilities.Enums.DataKey;
+import utilities.Enums.TableKey;
 
 import static utilities.stringUtils.getEpochTimeStamp;
 import static utilities.stringUtils.isCredentialValid;
@@ -20,24 +18,20 @@ import static utilities.stringUtils.isCredentialValid;
 // access definers should be reviewed and probably changed, you silly-nutty faggot ;p
 public class LocalUser {
 
-    public LocalUser (String username, String password) {
-        pullUserFromDB(username, password);
+    // Tested 24/01/24 00:13
+    public static LocalUser logIn (String username, String password) {
 
-        if (!this.isLoggedIn) {
-            // do something really, REALLY scary
-        }
+        LocalUser localUser = new LocalUser();
+        localUser.pullUserFromDB(username, password);
 
-        pullAllAccountsFromDB();
-        pullAllGoalsFromDB();
-        pullAllHistoryFromDB();
+        localUser.pullAllAccountsFromDB();
+        localUser.pullAllGoalsFromDB();
+        localUser.pullAllHistoryFromDB();
+        return localUser;
     }
 
+    // Tested via logIn() 24/01/24 00:13
     private void pullUserFromDB(String username, String password) {
-
-        if (this.isLoggedIn) {
-            logger.error("in pullUserFromDB - someone is already logged in; log out firstly");
-            return;
-        }
 
         if (!isCredentialValid(username)) {
             logger.error("in pullUserFromDB - invalid username: " + username);
@@ -65,10 +59,12 @@ public class LocalUser {
                     "Searched password: " + password);
             return;
         }
+
         this.userInfo = goodUser.get();
-        this.isLoggedIn = true;
     }
 
+    // part of registerNewUser
+    // Tested 23/01/24 23:53
     private void pushUserToDB() {
 
         DataKey[] columns = {DataKey.UserName, DataKey.Email, DataKey.Phone, DataKey.Password, DataKey.mainAccount};
@@ -85,6 +81,7 @@ public class LocalUser {
         }
     }
 
+    // Tested 23/01/24 23:53
     public static Optional<LocalUser> registerNewUser(String username, String password, String email, String phone,
                                      String currency, String accountTitle) {
 
@@ -112,7 +109,7 @@ public class LocalUser {
             return Optional.empty();
         }
 
-        LocalUser user = new LocalUser(username, password);
+        LocalUser user = logIn(username, password);
 
         try {
             Date date = new Date();
@@ -132,6 +129,7 @@ public class LocalUser {
             // UPDATE users SET mainAccount = {user.accountsInfo.get(0)} where userId = {user.userInfo.UserID}
             DBManageData.updateSingleData(Enums.TableKey.USERS, DataKey.UserID, String.valueOf(user.userInfo.UserID),
                                             DataKey.mainAccount, String.valueOf(user.accountsInfo.get(0).AccID));
+
         } catch (SQLException e) {
             logger.error("Couldn't update user's " + user.userInfo.UserName + "main account in DB.\n" +
                     "SQLException message: " + e.getMessage() + "\n" +
@@ -143,15 +141,47 @@ public class LocalUser {
         return Optional.of(user);
     }
 
-    // TODO how the fuck
-    // public void updateUserInDB()
+    // Tested via deleteUser() 24/01/24 00:18
+    public void logOutLocally() {
+        this.goalsInfo.clear();
+        this.goalsInfo = null;
 
-    public static void deleteUserFromDB() {
-        // 1. delete everything else they have: accs, goals, histories
-        // 2. delete them also
-        // 3. happy :)
+        this.historyInfo.clear();
+        this.historyInfo = null;
+
+        this.accountsInfo.clear();
+        this.accountsInfo = null;
+
+        this.userInfo = null;
     }
 
+    // Tested 24/01/24 00:18
+    public static void deleteUser(LocalUser localUser) {
+        deleteUserFromDB(localUser);
+        localUser.logOutLocally();
+        // more happy :))
+    }
+
+    // Tested via deleteUser() 24/01/24 00:18
+    private static void deleteUserFromDB(LocalUser localUser) {
+        // 1. delete everything else they have: accs, goals, histories | Delete from DB
+        final TableKey[] tablesToDeleteFrom = {TableKey.GOALS, TableKey.HISTORY, TableKey.ACCOUNTS, TableKey.USERS};
+
+        for (TableKey tableKey : tablesToDeleteFrom) {
+            try {
+                DBManageData.deleteRow(tableKey, DataKey.UserID, String.valueOf(localUser.userInfo.UserID));
+            } catch (SQLException e) {
+                logger.error("Couldn't delete user data from table " + tableKey + ".\n" +
+                        "SQLException message: " + e.getMessage() + "\n" +
+                        "SQL state: " + e.getSQLState() + "\n" +
+                        "Stack trace: " + e.getStackTrace());
+                return;
+            }
+        }
+        // 2. happy :)
+    }
+
+    // Tested via logIn() 24/01/24 00:13
     private void pullAllAccountsFromDB() {
 
         Optional<AccountRecord[]> userAccounts = DBGetData.getAccountRows(this.userInfo.UserID);
@@ -161,11 +191,11 @@ public class LocalUser {
             return;
         }
 
-        // implement fucking assigning userAccount to this.accountInfo, fuck you Optionals
-        // ...
+        this.accountsInfo.clear();
+        this.accountsInfo.addAll(List.of(userAccounts.get()));
     }
 
-    // TODO Needs test!
+    // Tested 24/01/24 01:15
     private void pushNewAccountToDB(String title, String val, String currency) {
 
         // idk if it's enough
@@ -187,12 +217,30 @@ public class LocalUser {
                     "SQLException message: " + e.getMessage() + "\n" +
                     "SQL state: " + e.getSQLState() + "\n" +
                     "Stack trace: " + e.getStackTrace());
+            return;
         }
+
+        this.pullAllAccountsFromDB();
     }
 
-    // TODO: how the fuck
-    //private void updateAccountInDB()
+    private void updateAccountInDB(String accID, String title, String val, String currency, String timeStamp) {
 
+        DataKey[] columns = {DataKey.Title, DataKey.Val, DataKey.Currency, DataKey.CreateTimeStamp};
+        String[] values = {title, val, currency, timeStamp};
+
+        try {
+            DBManageData.updateRow(TableKey.ACCOUNTS, DataKey.AccID, accID, columns, values);
+        }
+        catch (SQLException e) {
+            logger.error("updateAccountInDB - updateRow error, couldn't insert into DB: "
+                        + accID + ", " + title + ", " + val + ", " + currency + ", " + timeStamp);
+            return;
+        }
+        
+        this.pullAllAccountsFromDB();
+    }
+
+    // Tested 24/01/24 01:16
     public void deleteAccountFromDB(int... accID) {
 
         for (int i : accID) {
@@ -207,10 +255,11 @@ public class LocalUser {
                             + "\n stack trace: " + e.getStackTrace());
                 continue;
             }
-            // remove from local data somehow...
+            this.pullAllAccountsFromDB();
         }
     }
 
+    // Tested via logIn() 24/01/24 00:13
     public void pullAllGoalsFromDB() {
 
         Optional<GoalRecord[]> userGoals = DBGetData.getGoalRows(this.userInfo.UserID);
@@ -220,18 +269,58 @@ public class LocalUser {
             return;
         }
 
-        // implement fucking assigning userGoals to this.accountInfo, fuck you Optionals
-        // ...
+        this.goalsInfo.clear();
+        this.goalsInfo.addAll(List.of(userGoals.get()));
     }
 
-    public void pushNewGoalToDB(String title, String value, String Goal, String Currency, String timeStamp, String deadline) {
+    // Tested 24/01/24 01:16
+    public void pushNewGoalToDB(String title, String value, String goal, String currency, String timeStamp,
+                                String deadline) {
+        if (!isCredentialValid(title) || !isCredentialValid(currency) || !isCredentialValid(goal)
+                || !isCredentialValid(timeStamp) || !isCredentialValid(deadline)) {
+            logger.error("pushNewAccountToDB - credential error - title: " + title + " | currency:  " + currency);
+            return;
+        }
 
+        Date date = new Date();
+        DataKey[] columns = {DataKey.UserID, DataKey.Title, DataKey.Val, DataKey.Goal, DataKey.Currency,
+                DataKey.CreateTimeStamp, DataKey.Deadline};
+        String[] values = {String.valueOf(this.userInfo.UserID), title, value, goal, currency, timeStamp, deadline};
+
+        try {
+            DBManageData.insertRow(Enums.TableKey.GOALS, columns, values);
+        }
+        catch (SQLException e) {
+            logger.error("Couldn't push this user's -> " + this.userInfo.UserName + " new account to DB.\n" +
+                    "Info meant to be inserted: "+ title + ", " + value + ", " + goal + ", " + currency + ", " + deadline + "\n" +
+                    "SQLException message: " + e.getMessage() + "\n" +
+                    "SQL state: " + e.getSQLState() + "\n" +
+                    "Stack trace: " + e.getStackTrace());
+
+            return;
+        }
+
+        this.pullAllGoalsFromDB();
     }
 
+    // Tested 24/01/24 01:16
     public void deleteGoalFromDB(int... goalID) {
-
+        for (int currentGoalID : goalID) {
+            try {
+                DBManageData.deleteRow(TableKey.GOALS, DataKey.GoalID, String.valueOf(currentGoalID));
+            }
+            catch (SQLException e) {
+                logger.error("deleteAccountFromDB - error while removing goal of ID:" + currentGoalID
+                        + "\n SQLException message: " + e.getMessage()
+                        + "\n SQL state: " + e.getSQLState()
+                        + "\n stack trace: " + e.getStackTrace());
+                continue;
+            }
+            this.pullAllGoalsFromDB();
+        }
     }
 
+    // Tested via logIn() 24/01/24 00:13
     public void pullAllHistoryFromDB() {
 
         // to be written
@@ -242,38 +331,90 @@ public class LocalUser {
             return;
         }
 
-        // implement fucking assigning userHistory to this.accountInfo, fuck you Optionals
-        // ...
+        this.historyInfo.clear();
+        this.historyInfo.addAll(List.of(userHistory.get()));
     }
 
-    public void pushNewHistoryToDB() {
+    // Tested 24/01/24 01:16
+    public void pushNewHistoryToDB(String accID, String change, String currency, String title) {
 
+         Optional<String> optValBefore = DBGetData.getAccountRecord(Integer.parseInt(accID), DataKey.Val);
+         String valBefore = "";
+
+         if(optValBefore.isPresent()) {
+            valBefore = optValBefore.get();
+         }
+         else {
+             logger.error("pushNewHistoryToDB - couldn't reach valBefore\n" +
+                          "credentials: accID: " + accID + " userID: " + this.userInfo.UserID);
+             return;
+         }
+
+        DataKey[] columns = {DataKey.UserID, DataKey.AccID, DataKey.ValBefore, DataKey.Change, DataKey.Currency,
+                DataKey.Title, DataKey.TimeStamp};
+
+        Date date = new Date();
+
+        String[] values = { String.valueOf(this.userInfo.UserID), accID, valBefore, change, currency,
+                            title, String.valueOf(getEpochTimeStamp(date))};
+
+        try {
+            DBManageData.insertRow(TableKey.HISTORY, columns, values);
+        }
+        catch (SQLException e) {
+            logger.error("pushNewHistoryToDB - insert row error \n"
+                        + "SQL message: " + e.getMessage() +
+                        "\n SQL state: " + e.getSQLState() +
+                        "\n stacktrace: " + e.getStackTrace());
+            return;
+        }
+
+        /* TODO
+            - [ ] change account value
+            - [ ] push changes to DB
+            - [ ] pull changes to local
+        */
+        this.pullAllHistoryFromDB();
     }
 
+    // Tested 24/01/24 01:16
     public void deleteHistoryFromDB(int... transID) {
 
+        for (int i : transID) {
+            try {
+                DBManageData.deleteRow(TableKey.HISTORY, DataKey.TransID, String.valueOf(i));
+            }
+            catch (SQLException e) {
+                logger.error("deleteAccountFromDB - error while removing history of ID: " + String.valueOf(i)
+                        + "\n SQLException message: " + e.getMessage()
+                        + "\n SQL state: " + e.getSQLState()
+                        + "\n stack trace: " + e.getStackTrace());
+                continue;
+            }
+            this.pullAllGoalsFromDB();
+        }
     }
+
+    // ===== fields =====
 
     private final static Logger logger = LogManager.getLogger(LocalUser.class);
 
-    private boolean isLoggedIn = false;
     private UserRecord userInfo;
     private ArrayList<AccountRecord> accountsInfo = new ArrayList<>();
     private ArrayList<GoalRecord> goalsInfo = new ArrayList<>();
     private ArrayList<HistoryRecord> historyInfo = new ArrayList<>();
 
-
     // ===== main =====
 
+
     public static void main(String[] args) {
-
-        Optional<LocalUser> user = registerNewUser("abecaduo", "adfbcdsb", "dupaa@roxa.pl", "6942013", "huj", "iiiii");
-        if (user.isEmpty()) {
-            System.out.println("zesrales sie");
-            return;
-        }
-        user.get().userInfo.UserName = "huj ci w dupe";
-        user.get().pushUserToDB();
-
+        LocalUser user = logIn("aaaaa", "aaaaaa");
+        user.pushNewAccountToDB("cebuliony", "696969.69", "cbln");
+        user.pushNewGoalToDB("na dziadka do orzechów", "1000", "42069", "cbln",
+                String.valueOf(utilities.stringUtils.getEpochTimeStamp(new Date())), "na wczoraj");
+        user.pushNewHistoryToDB("1", "-100.60", "cbln", "onlyfans niepełnoletnich gimnastyczek z tiktoka");
+        user.deleteAccountFromDB(6);
+        user.deleteGoalFromDB(6);
+        user.deleteHistoryFromDB(5);
     }
 }

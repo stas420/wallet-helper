@@ -14,16 +14,17 @@ public final class GoalRecord{
     int UserID;
     String Title;
     float Val;
+    float Goal;
     String Currency;
     Date CreateTimeStamp;
     String Deadline;
 
 
     public GoalRecord(String[] vals) {
-        if (vals.length != 7) {
+        if (vals.length != 8) {
             logger.error("Wrong array size provided to HistoryRecord constructor.\n" +
                     "Array provided: " + Arrays.toString(vals) + "\n" +
-                    "Expected length: 7\n" +
+                    "Expected length: 8\n" +
                     "Got: " + vals.length);
             System.err.println("Wrong length of array stoopid");
             return;
@@ -32,9 +33,10 @@ public final class GoalRecord{
         UserID = Integer.parseInt(vals[1]);
         Title = vals[2];
         Val = Float.parseFloat(vals[3]) / 100;
-        Currency = vals[4];
-        CreateTimeStamp = stringUtils.parseEpochToDate(Integer.parseInt(vals[5]));
-        Deadline = vals[6];
+        Goal = Float.parseFloat(vals[4]) / 100;
+        Currency = vals[5];
+        CreateTimeStamp = stringUtils.parseEpochToDate(Long.parseLong(vals[6]));
+        Deadline = vals[7];
     }
 
 }

@@ -22,13 +22,7 @@ public abstract class DBGetData {
 
     private static final Logger logger = LogManager.getLogger(DBGetData.class);
 
-    /*
-    TODO: ready ;p
-        - [x] getUserRows
-        - [x] getAccountRows
-        - [x]  getGoalRows
-        - [x] getHistoryRows
-     */
+
 
     // It will be useful when logging in a user
     public static Optional<UserRecord[]> getUserRows(String username) {
@@ -141,8 +135,8 @@ public abstract class DBGetData {
             result = statement.executeQuery(query);
 
             while (result.next()) {
-                String[] results = new String[7];
-                for (int colIndex = 0; colIndex < 7; colIndex++) {
+                String[] results = new String[8];
+                for (int colIndex = 0; colIndex < 8; colIndex++) {
                     results[colIndex] = result.getString(colIndex + 1);
                 }
                 GoalRecord record = new GoalRecord(results);
@@ -231,7 +225,6 @@ public abstract class DBGetData {
 
     // getGoalRecord
     public static Optional<String> getGoalRecord(int goalId, DataKey col) {
-
         if (goalId < 0)
             return Optional.empty();
 
