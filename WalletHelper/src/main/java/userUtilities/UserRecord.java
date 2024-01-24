@@ -51,7 +51,8 @@ public class UserRecord{
         mainAccount = mainAcc;
     }
 
+    /*
     public static void main(String[] args) {
         new UserRecord(new String[]{"test", "chuj ci w dupe"});
-    }
+    } */
 }

@@ -406,7 +406,7 @@ public class LocalUser {
 
     // ===== main =====
 
-
+    /*
     public static void main(String[] args) {
         LocalUser user = logIn("aaaaa", "aaaaaa");
         user.pushNewAccountToDB("cebuliony", "696969.69", "cbln");
@@ -416,5 +416,5 @@ public class LocalUser {
         user.deleteAccountFromDB(6);
         user.deleteGoalFromDB(6);
         user.deleteHistoryFromDB(5);
-    }
+    }*/
 }

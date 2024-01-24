@@ -51,9 +51,10 @@ public abstract class DBConnection {
     private static String password = "1app2Password3";
     private static boolean isSet = false;
 
+    /*
     public static void main(String[] args) {
         setConnection();
 
-    }
+    }*/
 }
 
