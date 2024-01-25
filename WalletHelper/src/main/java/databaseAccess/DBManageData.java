@@ -6,6 +6,8 @@ import static utilities.Enums.dataToType;
 
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -13,7 +15,9 @@ import java.math.RoundingMode;
 // Used for queries changing structure of the database (INSERT, UPDATE, DELETE),
 // so they do not return actually anything.
 public class DBManageData {
-
+    
+    static final Logger logger = LogManager.getLogger(DBManageData.class);
+   
     public static void insertRow(TableKey table, DataKey[] columns, String[] values) throws SQLException {
 
         while(!DBConnection.isConnected()) {
@@ -24,6 +28,7 @@ public class DBManageData {
             System.out.println("insertRow - incorrect arrays' sizes.");
             return;
         }
+
         String query = DBQuery.insert(table, columns);
         System.out.println(columns);
         PreparedStatement ps = DBConnection.getConnector().prepareStatement(query);
@@ -53,6 +58,13 @@ public class DBManageData {
         }
 
         ps.execute();
+
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("insertRow - closeConnection - couldn't close connection");
+        }
     }
 
     public static void updateSingleData (TableKey table, DataKey ID, String IDVal, DataKey column, String newVal) throws SQLException {
@@ -80,6 +92,14 @@ public class DBManageData {
         ps.setInt(2, Integer.parseInt(IDVal));
 
         ps.execute();
+
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("updateSingleData - closeConnection - couldn't close connection");
+        }
+
     }
 
     public static void updateRow (TableKey table, DataKey ID, String IDVal, DataKey[] columns, String[] newVals) throws SQLException {
@@ -109,6 +129,14 @@ public class DBManageData {
         ps.setInt(newVals.length + 1, Integer.parseInt(IDVal));
 
         ps.execute();
+
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("updateRow - closeConnection - couldn't close connection");
+        }
+
     }
 
     // SPECIAL CASE: delete USER -> this action will be public by app locally (when any data, then cannot delete)
@@ -121,6 +149,15 @@ public class DBManageData {
         PreparedStatement ps = DBConnection.getConnector().prepareStatement(DBQuery.delete(table, ID));
         ps.setInt(1, Integer.parseInt(IDVal));
         ps.execute();
+
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("deleteRow - closeConnection - couldn't close connection");
+        }
+
     }
+    
 
 }

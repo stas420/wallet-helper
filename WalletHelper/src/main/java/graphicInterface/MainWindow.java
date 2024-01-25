@@ -9,12 +9,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
-
+// TODO ICON!!!!
 public class MainWindow {
 
-    // panel1 - left
-    // panel2 - middle
-    // panel3 - right
+    // panel0 - top ribbon -> "Hello anon" + time + buttons (change..., refresh, log out)
+    // panel1 - left -> accounts table + set main button with 'int field'
+    // panel2 - middle -> goals table
+    // panel3 - right -> transactions table
 
     private void setFrame() {
         SwingUtilities.invokeLater(() ->

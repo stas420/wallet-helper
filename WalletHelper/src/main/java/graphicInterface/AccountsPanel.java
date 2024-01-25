@@ -4,13 +4,28 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.awt.Font;
-import java.awt.Color;
 
-public class LeftPanel {
+public class AccountsPanel {
+    /* TODO
+        - [ ] "Your accounts" title
+        - [ ] set main account
+             - [ ] label
+             - [ ] int input field
+             - [ ] confirmation
+             - [ ] if brong value then pop-up window appears
+        - [ ] table with all accounts of current user with fields:
+             - account ID
+             - title
+             - value
+             - currency
+             - creation time
+        - [ ] highlighting accounts with debts (red)
+        {"ID", "Title", "Funds", "Currency", "Created"};
+    */
+
+    static JFrame window = new JFrame("Accounts panel windows - FOR DEV PURPOSES");
+    static JPanel accountPanel = new JPanel();
+
 
     public static void addUsernameLabel(String username) {
 
@@ -27,19 +42,7 @@ public class LeftPanel {
         //...
     }
 
-    private void addButtons() {
-        JButton add = new JButton("Add");
-        JButton remove = new JButton("Remove");
 
-        add.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-
-    }
 }
 
 /*

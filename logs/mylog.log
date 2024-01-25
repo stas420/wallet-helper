@@ -47,3 +47,113 @@ SQLException message: [SQLITE_ERROR] SQL error or missing database (no such colu
 Stack trace: [Ljava.lang.StackTraceElement;@60f00693
 00:49:29.120 [main] ERROR userUtilities.LocalUser - pushNewHistoryToDB - couldn't reach valBefore
 credentials: accID: 1 userID: 1
+20:08:43.437 [AWT-EventQueue-0] WARN  userUtilities.LocalUser - DBGetData.getUserRows(faa) returned an empty optional.
+Passed username: faa
+20:10:42.347 [AWT-EventQueue-0] WARN  userUtilities.LocalUser - DBGetData.getUserRows(fbhajb) returned an empty optional.
+Passed username: fbhajb
+20:10:42.353 [AWT-EventQueue-0] WARN  userUtilities.LocalUser - logIn - invalid credentials, empty user
+20:11:09.970 [AWT-EventQueue-0] WARN  userUtilities.LocalUser - DBGetData.getUserRows(fbhajb) returned an empty optional.
+Passed username: fbhajb
+20:11:09.970 [AWT-EventQueue-0] WARN  userUtilities.LocalUser - logIn - invalid credentials, empty user
+20:38:12.286 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:38:12.300 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:38:12.303 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:38:12.308 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:38:12.310 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:38:12.313 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:38:12.315 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:38:12.318 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:44:59.713 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:44:59.724 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:44:59.727 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:44:59.731 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:44:59.732 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:44:59.735 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:44:59.736 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:44:59.739 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:44:59.748 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user loggged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+20:55:17.694 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:55:17.708 [AWT-EventQueue-0] WARN  userUtilities.LocalUser - DBGetData.getUserRows(fbaajb) returned an empty optional.
+Passed username: fbaajb
+20:55:17.710 [AWT-EventQueue-0] WARN  userUtilities.LocalUser - logIn - invalid credentials, empty user
+20:55:17.710 [AWT-EventQueue-0] INFO  graphicInterface.LogInWindow - Unsuccessful login attempt.
+Username: fbaajb
+Password: 
+20:55:41.965 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:55:41.967 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:55:41.971 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:55:41.973 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:55:41.977 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:55:41.978 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:55:41.981 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:55:41.990 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+21:29:53.890 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:13:15.329 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:13:15.358 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:13:15.361 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:13:15.366 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:13:15.369 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:13:15.370 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:13:15.373 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:13:15.374 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:13:15.377 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:13:15.378 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:13:15.388 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 4
+Username: bbbbb
+Accounts List size: 0
+Goals List size: 0
+History List size: 0
+22:13:15.390 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:13:15.396 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:13:15.398 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:13:15.400 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:13:15.402 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:13:15.409 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:13:15.416 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - Registered new user.
+User ID: 4
+Username: bbbbb
+Password: bbbbbb
+Email: bb@bbb.bb
+Phone: 641145441
+Main Account ID: 10
+22:15:02.416 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:53.886 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:53.918 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:53.922 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:53.927 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:53.930 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:53.932 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:53.934 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:53.936 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:53.938 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:53.940 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:53.951 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 5
+Username: bhgbvjhgjhgvjhvhg
+Accounts List size: 0
+Goals List size: 0
+History List size: 0
+22:17:53.953 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:53.960 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:53.962 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:53.964 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:53.965 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:53.972 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:53.981 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - Registered new user.
+User ID: 5
+Username: bhgbvjhgjhgvjhvhg
+Password: hbvhjvkhvvbhvkjuhbkhufvkjg
+Email: kijfejsnkjfebjikesfbkjn
+Phone: jbfsjbfjsbek
+Main Account ID: 11

@@ -24,7 +24,7 @@ public class LocalUser {
         LocalUser localUser = new LocalUser();
         pullUserResult result = localUser.pullUserFromDB(username, password);
 
-        if (result == pullUserResult.INVALID_CRED) {
+        if (result != pullUserResult.OK) {
             logger.warn("logIn - invalid credentials, empty user");
             return Optional.empty();
         }
@@ -32,6 +32,14 @@ public class LocalUser {
         localUser.pullAllAccountsFromDB();
         localUser.pullAllGoalsFromDB();
         localUser.pullAllHistoryFromDB();
+
+        logger.info("New user logged in.\n" +
+                "User ID: " + localUser.userInfo.UserID + "\n" +
+                "Username: " + localUser.userInfo.UserName + "\n" +
+                "Accounts List size: " + localUser.accountsInfo.size() + "\n" +
+                "Goals List size: " + localUser.goalsInfo.size() + "\n" +
+                "History List size: " + localUser.historyInfo.size());
+
         return Optional.of(localUser);
     }
 
@@ -150,6 +158,13 @@ public class LocalUser {
             return Optional.empty();
         }
 
+        logger.info("Registered new user.\n" +
+                "User ID: " + user.userInfo.UserID + "\n" +
+                "Username: " + user.userInfo.UserName + "\n" +
+                "Password: " + user.userInfo.Password + "\n" +
+                "Email: " + user.userInfo.Email + "\n" +
+                "Phone: " + user.userInfo.Phone + "\n" +
+                "Main Account ID: " + user.userInfo.mainAccount);
         return Optional.of(user);
     }
 

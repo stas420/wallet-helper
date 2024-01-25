@@ -26,13 +26,16 @@ public abstract class DBConnection {
                     "SQLException message: " + e.getMessage() + "\n" +
                     "SQL state: " + e.getSQLState() + "\n" +
                     "Stack trace: " + e.getStackTrace() + "\n");
+            return;
         }
+        logger.info("DBConnection - connection set");
     }
 
     protected static void closeConnection() throws SQLException {
 
         mainConnector.close();
         isSet = false;
+        logger.info("DBConnection - connection closed");
     }
 
     protected static boolean isConnected() {

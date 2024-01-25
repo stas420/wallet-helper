@@ -1,5 +1,7 @@
 package utilities;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.Date;
 
@@ -35,11 +37,27 @@ public abstract class stringUtils {
     // more should be added soon
     public static boolean isCredentialValid(String cred) {
         return !cred.contains("(") && !cred.contains(")") && !cred.contains("\\") && !cred.contains(";") && !cred.contains(",")
-                && !cred.contains(":") &&  !cred.contains("/") && !cred.contains("*");
+                && !cred.contains(":") && !cred.contains("/") && !cred.contains("*");
     } //!cred.contains(" ") &&
-}
-/*
-    public static String currentTimeStamp() {
+
+     public static String[] getColumnArray(Enums.TableKey key) {
+            return switch(key) {
+                case ACCOUNTS: {
+                    yield new String[] {"ID", "Title", "Funds", "Currency", "Created"};
+                }
+                case GOALS: {
+                    yield new String[] { "ID", "Title", "Funds", "Goal", "Currency", "Created", "Deadline"};
+                }
+                case HISTORY: {
+                    yield new String[] { "ID", "Account", "Value before", "Change", "Currency", "Title", "Created"};
+                }
+                default: {
+                    yield new String[] {"error"};
+                }
+            };
+     }
+
+   public static String currentTimeStamp() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         LocalDateTime ld = LocalDateTime.now();
 
@@ -52,4 +70,4 @@ public abstract class stringUtils {
 
         return dtf.format(ld);
     }
-    */
+}

@@ -54,6 +54,14 @@ public abstract class DBGetData {
         }
         if (records.isEmpty())
             return Optional.empty();
+
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("getUserRows - closeConnection - couldn't close connection");
+        }
+
         return Optional.of(records.toArray(new UserRecord[0]));
     }
 
@@ -84,6 +92,14 @@ public abstract class DBGetData {
                     "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
+
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("getUserRows - closeConnection - couldn't close connection");
+        }
+
         return Optional.of(records.toArray(new UserRecord[0]));
     }
 
@@ -119,6 +135,14 @@ public abstract class DBGetData {
                     "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
+
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("getAccountRows - closeConnection - couldn't close connection");
+        }
+
         return Optional.of(records.toArray(new AccountRecord[]{}));
     }
 
@@ -149,6 +173,14 @@ public abstract class DBGetData {
                     "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
+
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("getGoalRows - closeConnection - couldn't close connection");
+        }
+
         return Optional.of(records.toArray(new GoalRecord[0]));
     }
 
@@ -181,6 +213,13 @@ public abstract class DBGetData {
                     "SQLException message: " + e.getMessage() + "\n" +
                     "Stack trace: " + e.getStackTrace());
             return Optional.empty();
+        }
+
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("getUserRecord - closeConnection - couldn't close connection");
         }
 
         // At this point we have a result that contains the queried response
@@ -219,6 +258,13 @@ public abstract class DBGetData {
             return Optional.empty();
         }
 
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("getAccountRecord - closeConnection - couldn't close connection");
+        }
+
         // At this point we have a result that contains the queried response
         return Optional.of(output);
     }
@@ -252,6 +298,13 @@ public abstract class DBGetData {
                     "SQLException message: " + e.getMessage() + "\n" +
                     "Stack trace: " + e.getStackTrace());
             return Optional.empty();
+        }
+
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("getGoalRecord - closeConnection - couldn't close connection");
         }
 
         // At this point we have a result that contains the queried response
@@ -292,6 +345,14 @@ public abstract class DBGetData {
                     "Stack trace: " + e.getStackTrace());
             return Optional.empty();
         }
+
+        try {
+            DBConnection.closeConnection();
+        }
+        catch (SQLException e) {
+            logger.warn("getHistoryRows - closeConnection - couldn't close connection");
+        }
+
         return Optional.of(records.toArray(new HistoryRecord[]{}));
     }
 }

@@ -46,7 +46,7 @@ public abstract class Enums {
 
         // A weird, Java 'enhanced switch expression' IntelliJ forced me to make ;_;
         return switch (data) {
-            case UserID, AccID, GoalID, TransID, Phone, mainAccount, CreateTimeStamp, TimeStamp: {
+            case UserID, AccID, GoalID, TransID, mainAccount, CreateTimeStamp, TimeStamp: {
                 yield TypeKey.INT;
             }
 
