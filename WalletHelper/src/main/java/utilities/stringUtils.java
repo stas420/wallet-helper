@@ -1,5 +1,6 @@
 package utilities;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -40,24 +41,29 @@ public abstract class stringUtils {
                 && !cred.contains(":") && !cred.contains("/") && !cred.contains("*");
     } //!cred.contains(" ") &&
 
-     public static String[] getColumnArray(Enums.TableKey key) {
-            return switch(key) {
-                case ACCOUNTS: {
-                    yield new String[] {"ID", "Title", "Funds", "Currency", "Created"};
-                }
-                case GOALS: {
-                    yield new String[] { "ID", "Title", "Funds", "Goal", "Currency", "Created", "Deadline"};
-                }
-                case HISTORY: {
-                    yield new String[] { "ID", "Account", "Value before", "Change", "Currency", "Title", "Created"};
-                }
-                default: {
-                    yield new String[] {"error"};
-                }
-            };
-     }
+    public static String[] getColumnArray(Enums.TableKey key) {
+        return switch(key) {
+            case ACCOUNTS: {
+                yield new String[] {"ID", "Title", "Funds", "Currency", "Created"};
+            }
+            case GOALS: {
+                yield new String[] { "ID", "Title", "Funds", "Goal", "Currency", "Created", "Deadline"};
+            }
+            case HISTORY: {
+                yield new String[] { "ID", "Account", "Value before", "Change", "Currency", "Title", "Created"};
+            }
+            default: {
+                yield new String[] {"error"};
+            }
+        };
+    }
 
-   public static String currentTimeStamp() {
+    public static String dateFormat(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        return sdf.format(date);
+    }
+
+    public static String currentTimeStamp() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         LocalDateTime ld = LocalDateTime.now();
 

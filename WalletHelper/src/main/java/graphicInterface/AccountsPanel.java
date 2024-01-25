@@ -1,19 +1,30 @@
 package graphicInterface;
 
+import userUtilities.LocalUser;
+import static utilities.stringUtils.getColumnArray;
+
+import utilities.Enums;
+import utilities.RoundedBorder;
+import utilities.stringUtils;
+
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import java.awt.*;
+import java.awt.event.*;
+import java.text.NumberFormat;
 
 public class AccountsPanel {
     /* TODO
-        - [ ] "Your accounts" title
-        - [ ] set main account
-             - [ ] label
-             - [ ] int input field
-             - [ ] confirmation
-             - [ ] if brong value then pop-up window appears
-        - [ ] table with all accounts of current user with fields:
+        - [x] "Your accounts" title
+        - [x] set main account
+             - [x] label
+             - [x] int input field
+             - [x] confirmation
+             - [x] if brong value then pop-up window appears
+        - [x] table with all accounts of current user with fields:
              - account ID
              - title
              - value
@@ -23,26 +34,150 @@ public class AccountsPanel {
         {"ID", "Title", "Funds", "Currency", "Created"};
     */
 
-    static JFrame window = new JFrame("Accounts panel windows - FOR DEV PURPOSES");
+    private final static Font boldLargeTextFont = new Font("Manrope", Font.BOLD, 20);
+    private final static Font inputTextFont = new Font("Manrope", Font.PLAIN, 12);
+    private final static Font buttonFont = new Font("Manrope", Font.PLAIN, 15);
+    final static Color backgroundColor = new Color(45, 49, 56);
+    final static Color textColor = new Color(255, 255, 222);
+    final static Color accentColor = new Color(113, 55, 210);
+    final static Color logOutColor = new Color(219, 65, 70);
+    final static Color inputColor = new Color(83, 70, 117);
+    final static RoundedBorder roundedBorder = new RoundedBorder(8);
+
+    //static JFrame window = new JFrame("Accounts panel windows - FOR DEV PURPOSES");
     static JPanel accountPanel = new JPanel();
 
+    private static void addTopText() {
 
-    public static void addUsernameLabel(String username) {
+        JPanel thisPanel = new JPanel(new BorderLayout());
+        JLabel yourAccsText = new JLabel("YOUR ACCOUNTS");
+        yourAccsText.setHorizontalAlignment(SwingConstants.CENTER);
+        yourAccsText.setFont(boldLargeTextFont);
+        yourAccsText.setForeground(textColor);
+
+        //thisPanel.setBorder(new LineBorder(textColor)); // TODO remove after debug
+        //yourAccsText.setBorder(new LineBorder(textColor));
+
+        thisPanel.setBackground(backgroundColor);
+        thisPanel.add(yourAccsText);
+
+        accountPanel.add(thisPanel);
+    }
+
+    private static void addMainAccountSetting(LocalUser user) {
+
+        JPanel thisPanel = new JPanel(new FlowLayout());
+        JLabel text = new JLabel ("Set main account ID:");
+        NumberFormat numberFormat = NumberFormat.getIntegerInstance();
+        JFormattedTextField input = new JFormattedTextField(numberFormat);
+        JButton setButton = new JButton("Set");
+
+        //thisPanel.setBorder(new LineBorder(textColor)); // TODO remove after debug
+
+        text.setForeground(textColor);
+        text.setBackground(backgroundColor);
+
+        input.setBorder(roundedBorder);
+        input.setBackground(inputColor);
+        input.setForeground(textColor);
+        input.setFont(inputTextFont);
+        input.setColumns(7);
+
+        setButton.setFont(buttonFont);
+        setButton.setBackground(backgroundColor);
+        setButton.setForeground(textColor);
+        setButton.setBorder(roundedBorder);
+
+        setButton.addActionListener(e -> {
+            int ID = -1;
+
+            try {
+                ID = Integer.parseInt(input.getText());
+            }
+            catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null,
+                        "Wrong value - either not an integer or wrong account ID",
+                        "Input error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
+            if (ID >= 0) {
+                user.userInfo.mainAccount = ID;
+                user.pushUserToDB();
+                user.pullUserFromDB(user.userInfo.UserName, user.userInfo.Password);
+                MainWindow.getMainFrame().dispose();
+                MainWindow.setFrame(user);
+            }
+            else {
+                JOptionPane.showMessageDialog(null,
+                        "Wrong value - either not an integer or wrong account ID",
+                        "Input error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+        thisPanel.setBackground(backgroundColor);
+
+        thisPanel.add(text);
+        thisPanel.add(input);
+        thisPanel.add(setButton);
+
+        accountPanel.add(thisPanel);
 
     }
 
-    private void addDateLabel() {
+    private static void addTable(LocalUser user) {
 
+        final String[] columnHeads = {"Account ID", "Title", "Funds", "Creation time"};
+        String[][] contents = user.accountsInfo.stream().map(accountRecord ->
+                    new String[]{
+                            String.valueOf(accountRecord.AccID),
+                            accountRecord.Title,
+                            String.format("%.2f %s", accountRecord.Val, accountRecord.Currency),
+                            stringUtils.dateFormat(accountRecord.CreateTimeStamp)
+                    }).toArray(String[][]::new);
+
+        JTable table = new JTable(contents, columnHeads);
+
+        final Font thisFont = new Font("Manrope", Font.PLAIN, 12);
+
+        table.setFont(thisFont);
+        table.setBackground(backgroundColor);
+        table.setForeground(textColor);
+        table.setFillsViewportHeight(true);
+        table.setDefaultEditor(Object.class, null);
+        table.setRowHeight(20);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
+        /*
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        table.setDefaultRenderer(String.class, centerRenderer);
+        */
+
+        JScrollPane thisScrollPane = new JScrollPane(table);
+        thisScrollPane.setBackground(backgroundColor);
+        /*
+        thisScrollPane.setBorder(new LineBorder(logOutColor));
+        thisScrollPane.setSize(thisScrollPane.getWidth(), 50);
+         */
+
+        accountPanel.add(thisScrollPane);
     }
 
-    private void addFirstTable() {
-        // DefaultTableModel ma opcję dodawania wierszy/kolumn/whatever, można zautomatyzować tworzenie tabeli
-        // zamiast hardcode;ować je
-        JTable tab = new JTable(new DefaultTableModel(new Object[]{"col1", "col2"}, 5));
-        //...
+    public static JPanel setAccountsPanel(LocalUser user) {
+
+        accountPanel.removeAll();
+        accountPanel = new JPanel();
+
+        accountPanel.setLayout(new /*GridLayout(3, 1)*/ FlowLayout());
+        accountPanel.setBackground(backgroundColor);
+        addTopText();
+        addMainAccountSetting(user);
+        addTable(user);
+
+        return accountPanel;
     }
-
-
 }
 
 /*

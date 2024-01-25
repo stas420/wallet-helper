@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Optional;
 
+import com.sun.tools.javac.Main;
 import userUtilities.LocalUser;
 import utilities.RoundedBorder;
 
@@ -98,7 +99,7 @@ public class LogInWindow {
             }
             else {
                 logInWindow.dispose();
-                // TODO open main window(local user)
+                MainWindow.setFrame(localUser.get());
             }
         });
 

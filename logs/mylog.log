@@ -169,3 +169,923 @@ Passed username:
 13:11:31.611 [AWT-EventQueue-0] INFO  graphicInterface.LogInWindow - Unsuccessful login attempt.
 Username: 
 Password: 
+19:09:49.777 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:09:49.790 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:09:49.794 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:09:49.798 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:09:49.800 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:09:49.803 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:09:49.804 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:09:49.808 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:09:49.817 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:13:08.065 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:13:08.079 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:13:08.083 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:13:08.088 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:13:08.089 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:13:08.093 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:13:08.094 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:13:08.098 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:13:08.108 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:17:23.613 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:17:23.622 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:17:23.625 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:17:23.629 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:17:23.630 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:17:23.632 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:17:23.634 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:17:23.636 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:17:23.643 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:26:47.725 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:26:47.733 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:26:47.735 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:26:47.738 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:26:47.739 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:26:47.741 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:26:47.743 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:26:47.745 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:26:47.753 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:34:48.077 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:34:48.092 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:34:48.095 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:34:48.100 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:34:48.102 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:34:48.105 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:34:48.107 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:34:48.110 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:34:48.120 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:38:56.450 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:38:56.460 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:38:56.462 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:38:56.466 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:38:56.467 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:38:56.470 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:38:56.471 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:38:56.473 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:38:56.483 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:40:47.528 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:40:47.538 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:40:47.541 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:40:47.545 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:40:47.546 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:40:47.548 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:40:47.550 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:40:47.552 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:40:47.560 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:42:01.046 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:42:01.055 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:42:01.058 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:42:01.061 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:42:01.062 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:42:01.065 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:42:01.066 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:42:01.068 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:42:01.075 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:47:00.005 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:47:00.017 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:47:00.020 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:47:00.025 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:47:00.026 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:47:00.030 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:47:00.032 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:47:00.036 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:47:00.046 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:47:48.808 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:47:48.819 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:47:48.822 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:47:48.825 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:47:48.826 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:47:48.829 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:47:48.830 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:47:48.832 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:47:48.841 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:51:06.356 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:51:06.370 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:51:06.373 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:51:06.378 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:51:06.380 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:51:06.384 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:51:06.386 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:51:06.390 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:51:06.399 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:55:00.576 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:55:00.589 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:55:00.592 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:55:00.597 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:55:00.598 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:55:00.602 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:55:00.604 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:55:00.607 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:55:00.616 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:58:02.107 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:58:02.120 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:58:02.123 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:58:02.128 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:58:02.130 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:58:02.134 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:58:02.136 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:58:02.139 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:58:02.149 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+19:59:18.175 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:59:18.184 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:59:18.186 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:59:18.190 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:59:18.191 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:59:18.193 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:59:18.194 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+19:59:18.196 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+19:59:18.203 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+20:00:09.786 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:00:09.800 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:00:09.804 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:00:09.808 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:00:09.809 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:00:09.813 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:00:09.815 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:00:09.819 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:00:09.831 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+20:01:17.317 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:01:17.332 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:01:17.335 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:01:17.340 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:01:17.342 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:01:17.345 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:01:17.346 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:01:17.350 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:01:17.359 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+20:03:11.149 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:03:11.164 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:03:11.168 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:03:11.172 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:03:11.174 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:03:11.178 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:03:11.180 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:03:11.183 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:03:11.193 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+20:05:51.105 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:05:51.114 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:05:51.117 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:05:51.120 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:05:51.121 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:05:51.124 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:05:51.125 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:05:51.127 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:05:51.135 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+20:07:17.379 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:07:17.393 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:07:17.396 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:07:17.400 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:07:17.401 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:07:17.407 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:07:17.410 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:07:17.412 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:07:17.425 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 4
+Username: bbbbb
+Accounts List size: 1
+Goals List size: 0
+History List size: 0
+20:26:23.079 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:26:23.092 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:26:23.096 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:26:23.101 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:26:23.103 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:26:23.106 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:26:23.108 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:26:23.111 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:26:23.120 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+20:26:57.997 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:26:58.020 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:26:58.022 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:26:58.024 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:33:12.386 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:33:12.399 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:33:12.403 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:33:12.408 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:33:12.409 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:33:12.413 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:33:12.415 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:33:12.418 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:33:12.427 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+20:33:16.433 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:33:16.453 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:33:16.455 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:33:16.457 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:50:53.671 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:50:53.682 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:50:53.685 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:50:53.689 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:50:53.690 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:50:53.693 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:50:53.694 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:50:53.697 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:50:53.706 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+20:53:11.264 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:53:11.276 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:53:11.280 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:53:11.284 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:53:11.286 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:53:11.289 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:53:11.290 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+20:53:11.293 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+20:53:11.303 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+21:19:47.507 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:19:47.521 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:19:47.525 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:19:47.530 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:19:47.532 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:19:47.537 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:19:47.539 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:19:47.542 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:19:47.553 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+21:21:51.045 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:21:51.058 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:21:51.061 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:21:51.066 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:21:51.068 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:21:51.071 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:21:51.072 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:21:51.075 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:21:51.085 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+21:24:44.848 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:24:44.860 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:24:44.863 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:24:44.867 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:24:44.869 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:24:44.872 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:24:44.874 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:24:44.877 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:24:44.887 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+21:26:44.737 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:26:44.747 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:26:44.750 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:26:44.753 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:26:44.755 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:26:44.757 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:26:44.759 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:26:44.762 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:26:44.769 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+21:35:54.300 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:35:54.312 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:35:54.316 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:35:54.321 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:35:54.323 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:35:54.326 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:35:54.328 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:35:54.332 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:35:54.341 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 3
+History List size: 1
+21:36:08.183 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:08.185 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:08.187 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:08.188 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:08.190 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:08.192 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:08.193 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:08.196 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:44.005 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:44.006 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:44.007 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:44.009 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:44.011 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:44.013 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:44.015 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:44.016 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:54.503 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:54.505 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:54.508 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:54.509 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:54.511 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:54.513 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:54.514 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:54.519 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:57.595 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:57.597 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:57.598 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:57.604 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:57.606 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:57.608 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:36:57.610 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:36:57.612 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:37:39.469 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:37:39.471 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:37:39.472 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:37:39.474 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:37:39.476 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:37:39.478 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:37:39.480 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:37:39.482 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:43:27.622 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:43:27.636 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:43:27.639 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:43:27.644 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:43:27.646 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:43:27.649 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:43:27.651 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:43:27.654 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:43:27.662 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 4
+History List size: 2
+21:43:37.065 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:43:37.067 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:43:37.069 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:43:37.071 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:43:37.073 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:43:37.074 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:43:37.076 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:43:37.078 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:46:24.938 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:46:24.940 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:46:24.941 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:46:24.943 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:46:24.950 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:46:24.953 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:46:24.956 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:46:24.958 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:48:33.562 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:48:33.574 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:48:33.577 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:48:33.582 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:48:33.583 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:48:33.587 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:48:33.589 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:48:33.592 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:48:33.602 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 2
+21:49:05.117 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:49:05.119 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:49:05.120 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:49:05.122 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:49:05.124 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:49:05.126 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:49:05.127 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:49:05.129 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:52:17.782 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:52:17.792 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:52:17.795 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:52:17.799 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:52:17.800 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:52:17.803 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:52:17.805 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:52:17.808 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:52:17.816 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 3
+21:52:50.677 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:52:50.680 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:52:50.682 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:52:50.684 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:52:50.686 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:52:50.690 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:52:50.692 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:52:50.694 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:56:34.313 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:56:34.327 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:56:34.331 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:56:34.338 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:56:34.340 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:56:34.345 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:56:34.347 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:56:34.351 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:56:34.364 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 4
+21:56:38.359 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:56:38.360 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:56:38.362 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:56:38.364 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:56:38.365 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:56:38.367 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:56:38.369 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:56:38.371 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:58:42.929 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:58:42.943 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:58:42.946 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:58:42.951 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:58:42.953 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:58:42.956 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:58:42.958 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:58:42.962 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:58:42.972 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 4
+21:58:46.275 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:58:46.277 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:58:46.278 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:58:46.281 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:58:46.283 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:58:46.285 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+21:58:46.287 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+21:58:46.289 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:01:29.178 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:01:29.192 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:01:29.195 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:01:29.200 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:01:29.201 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:01:29.205 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:01:29.206 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:01:29.210 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:01:29.219 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 4
+22:01:35.141 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:01:35.142 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:01:35.144 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:01:35.146 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:01:35.148 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:01:35.150 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:01:35.152 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:01:35.154 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:05:50.754 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:05:50.768 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:05:50.773 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:05:50.778 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:05:50.780 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:05:50.784 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:05:50.786 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:05:50.790 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:05:50.799 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 4
+22:06:06.908 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:06:06.909 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:06:06.911 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:06:06.913 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:06:06.914 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:06:06.916 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:06:06.917 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:06:06.919 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:07:32.131 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:07:32.144 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:07:32.147 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:07:32.153 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:07:32.155 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:07:32.158 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:07:32.160 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:07:32.163 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:07:32.172 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 4
+22:07:48.083 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:07:48.085 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:07:48.086 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:07:48.089 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:07:48.090 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:07:48.092 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:07:48.094 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:07:48.095 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:08:14.793 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:08:14.795 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:08:14.796 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:08:14.798 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:08:14.800 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:08:14.802 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:08:14.804 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:08:14.805 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:11:56.898 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:11:56.910 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:11:56.913 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:11:56.918 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:11:56.920 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:11:56.923 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:11:56.925 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:11:56.928 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:11:56.940 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:14:40.063 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:14:40.077 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:14:40.081 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:14:40.086 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:14:40.087 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:14:40.091 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:14:40.093 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:14:40.097 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:14:40.108 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:17:17.586 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:17.598 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:17.602 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:17.606 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:17.608 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:17.612 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:17.613 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:17:17.617 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:17:17.627 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:18:23.602 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:18:23.612 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:18:23.614 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:18:23.617 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:18:23.619 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:18:23.621 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:18:23.623 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:18:23.626 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:18:23.634 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:20:00.492 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:20:00.501 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:20:00.504 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:20:00.507 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:20:00.508 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:20:00.511 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:20:00.513 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:20:00.515 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:20:00.523 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:21:31.198 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:21:31.212 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:21:31.215 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:21:31.219 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:21:31.221 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:21:31.224 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:21:31.226 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:21:31.229 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:21:31.237 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:21:42.381 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:21:42.382 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:21:42.384 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:21:42.385 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:21:42.387 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:21:42.388 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:21:42.390 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:21:42.391 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:22:31.209 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:22:31.219 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:22:31.222 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:22:31.225 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:22:31.227 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:22:31.229 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:22:31.231 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:22:31.233 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:22:31.241 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:24:04.655 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:24:04.665 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:24:04.667 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:24:04.671 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:24:04.672 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:24:04.675 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:24:04.676 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:24:04.679 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:24:04.687 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:25:33.385 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:25:33.395 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:25:33.398 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:25:33.401 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:25:33.402 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:25:33.405 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:25:33.406 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:25:33.409 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:25:33.417 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:27:27.893 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:27:27.903 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:27:27.905 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:27:27.909 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:27:27.911 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:27:27.914 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:27:27.915 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:27:27.918 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:27:27.925 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:28:16.194 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:28:16.203 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:28:16.206 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:28:16.210 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:28:16.211 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:28:16.213 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:28:16.215 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:28:16.217 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:28:16.225 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:28:57.970 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:28:57.978 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:28:57.980 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:28:57.984 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:28:57.985 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:28:57.987 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:28:57.988 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:28:57.991 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:28:57.998 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:29:38.270 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:29:38.279 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:29:38.282 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:29:38.286 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:29:38.287 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:29:38.290 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:29:38.292 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:29:38.295 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:29:38.302 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:30:28.164 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:30:28.174 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:30:28.176 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:30:28.179 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:30:28.180 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:30:28.182 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:30:28.184 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:30:28.187 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:30:28.194 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:31:06.469 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:06.478 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:06.480 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:06.483 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:06.484 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:06.487 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:06.488 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:06.490 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:06.498 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:31:24.617 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:24.627 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:24.630 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:24.633 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:24.634 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:24.637 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:24.638 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:24.641 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:24.648 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:31:47.116 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:47.127 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:47.131 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:47.135 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:47.137 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:47.140 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:47.142 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:31:47.145 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:31:47.154 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:32:29.655 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:32:29.665 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:32:29.668 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:32:29.671 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:32:29.672 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:32:29.675 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:32:29.676 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:32:29.680 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:32:29.687 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:33:26.076 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:33:26.084 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:33:26.087 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:33:26.090 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:33:26.091 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:33:26.094 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:33:26.095 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:33:26.098 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:33:26.106 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6
+22:36:23.407 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:36:23.417 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:36:23.420 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:36:23.425 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:36:23.427 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:36:23.429 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:36:23.431 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection set
+22:36:23.434 [AWT-EventQueue-0] INFO  databaseAccess.DBConnection - DBConnection - connection closed
+22:36:23.443 [AWT-EventQueue-0] INFO  userUtilities.LocalUser - New user logged in.
+User ID: 1
+Username: aaaaa
+Accounts List size: 4
+Goals List size: 5
+History List size: 6

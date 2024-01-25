@@ -22,9 +22,9 @@ public class LocalUser {
     public static Optional<LocalUser> logIn (String username, String password) {
 
         LocalUser localUser = new LocalUser();
-        pullUserResult result = localUser.pullUserFromDB(username, password);
+        pullUserResultEnum result = localUser.pullUserFromDB(username, password);
 
-        if (result != pullUserResult.OK) {
+        if (result != pullUserResultEnum.OK) {
             logger.warn("logIn - invalid credentials, empty user");
             return Optional.empty();
         }
@@ -38,23 +38,23 @@ public class LocalUser {
                 "Username: " + localUser.userInfo.UserName + "\n" +
                 "Accounts List size: " + localUser.accountsInfo.size() + "\n" +
                 "Goals List size: " + localUser.goalsInfo.size() + "\n" +
-                "History List size: " + localUser.historyInfo.size());
+                "History List size: " + localUser.goalInfo.size());
 
         return Optional.of(localUser);
     }
 
     // Tested via logIn() 24/01/24 00:13
-    private enum pullUserResult {
+    private enum pullUserResultEnum {
         INVALID_USERNAME,
         INVALID_CRED,
         NO_SUCH_USER,
         OK
     }
-    private pullUserResult pullUserFromDB(String username, String password) {
+    public pullUserResultEnum pullUserFromDB(String username, String password) {
 
         if (!isCredentialValid(username)) {
             logger.error("in pullUserFromDB - invalid username: " + username);
-            return pullUserResult.INVALID_USERNAME;
+            return pullUserResultEnum.INVALID_USERNAME;
         }
 
         Optional<UserRecord[]> userRecords = DBGetData.getUserRows(username);
@@ -64,7 +64,7 @@ public class LocalUser {
                     "Passed username: " + username);
             // do something scary ;3
             // (UwU 👉👈)
-            return pullUserResult.NO_SUCH_USER;
+            return pullUserResultEnum.NO_SUCH_USER;
         }
 
         // Check if password is correct  V IMPORTANT! (this pleases the Java gods)
@@ -76,16 +76,16 @@ public class LocalUser {
         if (goodUser.isEmpty()) {
             logger.warn("None of the users from userRecords have matching passwords.\n" +
                     "Searched password: " + password);
-            return pullUserResult.INVALID_CRED;
+            return pullUserResultEnum.INVALID_CRED;
         }
 
         this.userInfo = goodUser.get();
-        return pullUserResult.OK;
+        return pullUserResultEnum.OK;
     }
 
     // part of registerNewUser
     // Tested 23/01/24 23:53
-    private void pushUserToDB() {
+    public void pushUserToDB() {
 
         DataKey[] columns = {DataKey.UserName, DataKey.Email, DataKey.Phone, DataKey.Password, DataKey.mainAccount};
         String[] values = {userInfo.UserName, userInfo.Email, userInfo.Phone, userInfo.Password, String.valueOf(userInfo.mainAccount)};
@@ -173,8 +173,8 @@ public class LocalUser {
         this.goalsInfo.clear();
         this.goalsInfo = null;
 
-        this.historyInfo.clear();
-        this.historyInfo = null;
+        this.goalInfo.clear();
+        this.goalInfo = null;
 
         this.accountsInfo.clear();
         this.accountsInfo = null;
@@ -209,7 +209,7 @@ public class LocalUser {
     }
 
     // Tested via logIn() 24/01/24 00:13
-    private void pullAllAccountsFromDB() {
+    public void pullAllAccountsFromDB() {
 
         Optional<AccountRecord[]> userAccounts = DBGetData.getAccountRows(this.userInfo.UserID);
 
@@ -358,8 +358,8 @@ public class LocalUser {
             return;
         }
 
-        this.historyInfo.clear();
-        this.historyInfo.addAll(List.of(userHistory.get()));
+        this.goalInfo.clear();
+        this.goalInfo.addAll(List.of(userHistory.get()));
     }
 
     // Tested 24/01/24 01:16
@@ -396,11 +396,6 @@ public class LocalUser {
             return;
         }
 
-        /* TODO
-            - [ ] change account value
-            - [ ] push changes to DB
-            - [ ] pull changes to local
-        */
         this.pullAllHistoryFromDB();
     }
 
@@ -426,10 +421,10 @@ public class LocalUser {
 
     private final static Logger logger = LogManager.getLogger(LocalUser.class);
 
-    private UserRecord userInfo;
-    private ArrayList<AccountRecord> accountsInfo = new ArrayList<>();
-    private ArrayList<GoalRecord> goalsInfo = new ArrayList<>();
-    private ArrayList<HistoryRecord> historyInfo = new ArrayList<>();
+    public UserRecord userInfo;
+    public ArrayList<AccountRecord> accountsInfo = new ArrayList<>();
+    public ArrayList<GoalRecord> goalsInfo = new ArrayList<>();
+    public ArrayList<HistoryRecord> goalInfo = new ArrayList<>();
 
     // ===== main =====
 

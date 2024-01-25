@@ -2,13 +2,12 @@ package graphicInterface;
 
 import userUtilities.LocalUser;
 import utilities.RoundedBorder;
+import utilities.stringUtils;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 // TODO ICON!!!!
@@ -18,31 +17,36 @@ public class MainWindow {
     // panel1 - left -> accounts table + set main button with 'int field'
     // panel2 - middle -> goals table
     // panel3 - right -> transactions table
-    final Color backgroundColor = new Color(45, 49, 56);
-    final Color textColor = new Color(255, 255, 222);
-    final Color accentColor = new Color(113, 55, 210);
+    final static Color backgroundColor = new Color(45, 49, 56);
+    final static Color textColor = new Color(255, 255, 222);
+    final static Color accentColor = new Color(113, 55, 210);
 
-    final Color logOutColor = new Color(219, 65, 70);
-    final RoundedBorder roundedBorder = new RoundedBorder(8);
+    final static Color logOutColor = new Color(219, 65, 70);
+    final static RoundedBorder roundedBorder = new RoundedBorder(8);
 
-    Font manrope = new Font("Manrope", Font.PLAIN, 15);
+    final static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 
-    private void setFrame() {
+    static Font manrope = new Font("Manrope", Font.PLAIN, 15);
 
+    public static void setFrame(LocalUser user) {
+
+        loggedInUser = user;
+        mainFrame = new JFrame();
 
         SwingUtilities.invokeLater(() ->
         {
             mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            mainFrame.setSize(1366, 768);
+            mainFrame.setSize(1500, 768);
             mainFrame.setResizable(false);
             ImageIcon icon = new ImageIcon(LogInWindow.class.getResource("/wallet-icon.png"));
             mainFrame.setIconImage(icon.getImage());
 
-
             GridBagLayout mainGridLayout = new GridBagLayout();
             mainFrame.setLayout(mainGridLayout);
 
-            GridLayout tablesGridLayout = new GridLayout(1, 3);
+            GridLayout tablesGridLayout = new GridLayout(1, 3, 15, 15);
+            tablesPanel.removeAll();
+            tablesPanel = new JPanel();
             tablesPanel.setLayout(tablesGridLayout);
             tablesPanel.setBackground(backgroundColor);
 
@@ -53,7 +57,7 @@ public class MainWindow {
             topRow.weighty = 0.2; // 20% of the height
             topRow.fill = GridBagConstraints.BOTH;
 
-            setTopRibbonPanel("Anon");
+            setTopRibbonPanel(user.userInfo.UserName);
             topRibbonPanel.setBackground(backgroundColor);
             mainFrame.add(topRibbonPanel, topRow);
 
@@ -68,18 +72,21 @@ public class MainWindow {
             centerPanel.setBackground(backgroundColor);
             rightPanel.setBackground(backgroundColor);
 
+            setPanels();
+            //leftPanel.setBorder(new LineBorder(textColor)); // TODO remove after debug
+
             tablesPanel.add(leftPanel);
             tablesPanel.add(centerPanel);
             tablesPanel.add(rightPanel);
-
-            setPanels();
 
             mainFrame.add(tablesPanel, bottomRow);
             mainFrame.setVisible(true);
         });
     }
 
-    private void setTopRibbonPanel(String username) {
+    private static void setTopRibbonPanel(String username) {
+        topRibbonPanel.removeAll();
+        topRibbonPanel = new JPanel();
         topRibbonPanel.setLayout(new BorderLayout());
         topRibbonPanel.setBorder(new EmptyBorder(new Insets (20,20,20,20)));
 
@@ -87,13 +94,23 @@ public class MainWindow {
         textPanel.setBorder(new EmptyBorder(new Insets(10, 20, 10, 20)));
         textPanel.setBackground(backgroundColor);
 
-        JLabel helloLabel = new JLabel("Hello, " + username + "!");
+        JLabel helloLabel = new JLabel();
+        helloLabel.setText("Hello, " + username + "!");
+        ImageIcon imageIcon = new ImageIcon(LogInWindow.class.getResource("/wallet-icon.png")); // load the image to a imageIcon
+        Image image = imageIcon.getImage(); // transform it
+        Image newimg = image.getScaledInstance(45, 45,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIcon = new ImageIcon(newimg);  // transform it back
+        helloLabel.setIcon(imageIcon);
+
+        helloLabel.setHorizontalTextPosition(JLabel.RIGHT);
+        helloLabel.setIconTextGap(20);
         helloLabel.setFont(new Font("Manrope", Font.BOLD, 30));
+        helloLabel.setVerticalAlignment(SwingConstants.CENTER);
         helloLabel.setForeground(textColor);
         textPanel.add(helloLabel, BorderLayout.NORTH);
 
-        Date current = new Date();
-        JLabel dateLabel = new JLabel(current.toString());
+
+        JLabel dateLabel = new JLabel(sdf.format(new Date()));
         dateLabel.setFont(new Font("Manrope", Font.PLAIN, 20));
         dateLabel.setForeground(textColor);
         textPanel.add(dateLabel);
@@ -109,7 +126,6 @@ public class MainWindow {
         buttonPanel.setBackground(backgroundColor);
         buttonPanel.setLayout(new FlowLayout());
 
-
         JButton changeInfoButton = new JButton("Change ur info");
         changeInfoButton.setBackground(backgroundColor);
         changeInfoButton.setForeground(textColor);
@@ -122,11 +138,27 @@ public class MainWindow {
         refreshAllButton.setBorder(roundedBorder);
         refreshAllButton.setFont(manrope);
 
+        refreshAllButton.addActionListener(e -> {
+            mainFrame.removeAll();
+            loggedInUser.pullUserFromDB(loggedInUser.userInfo.UserName, loggedInUser.userInfo.Password);
+            loggedInUser.pullAllHistoryFromDB();
+            loggedInUser.pullAllGoalsFromDB();
+            loggedInUser.pullAllAccountsFromDB();
+            mainFrame.dispose();
+            setFrame(loggedInUser);
+        });
+
         JButton logOutButton = new JButton("Log Out");
         logOutButton.setBackground(backgroundColor);
         logOutButton.setForeground(logOutColor);
         logOutButton.setBorder(roundedBorder);
         logOutButton.setFont(manrope);
+
+        logOutButton.addActionListener(e -> {
+            loggedInUser.logOutLocally();
+            mainFrame.dispose();
+            LogInWindow.setWindow();
+        });
 
         buttonPanel.add(changeInfoButton);
         buttonPanel.add(refreshAllButton);
@@ -136,16 +168,18 @@ public class MainWindow {
     }
 
     private static void updateLabel(JLabel label) {
-        label.setText((new Date()).toString());
+        label.setText(sdf.format(new Date()));
     }
 
-    private void setPanels() {
-        // TODO reach panels classes
-        // ...
+    private static void setPanels() {
 
+        leftPanel = AccountsPanel.setAccountsPanel(loggedInUser);
+        centerPanel = HistoryPanel.setHistoryPanel(loggedInUser);
+        rightPanel = GoalsPanel.setGoalsPanel(loggedInUser);
 
     }
 
+    private static LocalUser loggedInUser;
     private static JPanel leftPanel = new JPanel();
     private static JPanel centerPanel = new JPanel();
     private static JPanel rightPanel = new JPanel();
@@ -168,11 +202,6 @@ public class MainWindow {
 
     public static JPanel getRightPanel() {
         return rightPanel;
-    }
-
-    public static void main(String[] args) {
-        MainWindow mw = new MainWindow();
-        mw.setFrame();
     }
 }
 

@@ -10,14 +10,14 @@ import utilities.stringUtils;
 
 public final class GoalRecord{
     private final static Logger logger = LogManager.getLogger(GoalRecord.class);
-    int GoalID;
-    int UserID;
-    String Title;
-    float Val;
-    float Goal;
-    String Currency;
-    Date CreateTimeStamp;
-    String Deadline;
+    public int GoalID;
+    public int UserID;
+    public String Title;
+    public float Val;
+    public float Goal;
+    public String Currency;
+    public Date CreateTimeStamp;
+    public String Deadline;
 
 
     public GoalRecord(String[] vals) {
