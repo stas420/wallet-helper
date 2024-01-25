@@ -2,10 +2,7 @@ package graphicInterface;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import static java.awt.Component.CENTER_ALIGNMENT;
-import static javax.swing.JComponent.setDefaultLocale;
-import static javax.swing.JOptionPane.PLAIN_MESSAGE;
-import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,33 +24,50 @@ public class LogInWindow {
         logInWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         logInWindow.setSize(400, 200);
         logInWindow.setResizable(false);
+        ImageIcon icon = new ImageIcon(LogInWindow.class.getResource("/wallet-icon.png"));
+        logInWindow.setIconImage(icon.getImage());
 
+
+        final Color textColor = new Color(255, 255, 222);
+        final Color backgroundColor = new Color(45, 49, 56);
+        final Color accentColor = new Color(83, 70, 117);
         final RoundedBorder roundedBorder = new RoundedBorder(8);
 
         Font manrope = new Font("Manrope", Font.BOLD, 15);
         JPanel panel = new JPanel();
+        panel.setBackground(backgroundColor);
         panel.setLayout(new GridLayout(3, 2, 8, 27));
 
         JLabel usernameLabel = new JLabel("Username: ");
         usernameLabel.setFont(manrope);
+        usernameLabel.setForeground(textColor);
 
         JLabel passwordLabel = new JLabel("Password: ");
         passwordLabel.setFont(manrope);
+        passwordLabel.setForeground(textColor);
 
         JTextField usernameField = new JTextField();
+        usernameField.setForeground(textColor);
+        usernameField.setBackground(accentColor);
         usernameField.setBorder(roundedBorder);
+
         JPasswordField passwordField = new JPasswordField();
+        passwordField.setBackground(accentColor);
+        passwordField.setForeground(textColor);
         passwordField.setBorder(roundedBorder);
+
 
         manrope = new Font("Manrope", Font.BOLD, 12);
         JButton logInButton = new JButton("Log in");
-        logInButton.setBackground(Color.WHITE);
+        logInButton.setForeground(textColor);
+        logInButton.setBackground(backgroundColor);
         logInButton.setBorder(roundedBorder);
         logInButton.setFont(manrope);
         logInButton.setMaximumSize(new Dimension(20, 80));
 
         JButton registerButton = new JButton("Register new account");
-        registerButton.setBackground(Color.WHITE);
+        registerButton.setForeground(textColor);
+        registerButton.setBackground(backgroundColor);
         registerButton.setBorder(roundedBorder);
         registerButton.setFont(manrope);
         registerButton.setMaximumSize(new Dimension(20,80));

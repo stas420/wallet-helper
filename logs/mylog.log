@@ -157,3 +157,15 @@ Password: hbvhjvkhvvbhvkjuhbkhufvkjg
 Email: kijfejsnkjfebjikesfbkjn
 Phone: jbfsjbfjsbek
 Main Account ID: 11
+13:06:34.084 [AWT-EventQueue-0] WARN  userUtilities.LocalUser - DBGetData.getUserRows() returned an empty optional.
+Passed username: 
+13:06:34.090 [AWT-EventQueue-0] WARN  userUtilities.LocalUser - logIn - invalid credentials, empty user
+13:06:34.091 [AWT-EventQueue-0] INFO  graphicInterface.LogInWindow - Unsuccessful login attempt.
+Username: 
+Password: 
+13:11:31.605 [AWT-EventQueue-0] WARN  userUtilities.LocalUser - DBGetData.getUserRows() returned an empty optional.
+Passed username: 
+13:11:31.610 [AWT-EventQueue-0] WARN  userUtilities.LocalUser - logIn - invalid credentials, empty user
+13:11:31.611 [AWT-EventQueue-0] INFO  graphicInterface.LogInWindow - Unsuccessful login attempt.
+Username: 
+Password: 

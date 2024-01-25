@@ -1,12 +1,14 @@
 package graphicInterface;
 
 import userUtilities.LocalUser;
+import utilities.RoundedBorder;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 // TODO ICON!!!!
@@ -16,17 +18,25 @@ public class MainWindow {
     // panel1 - left -> accounts table + set main button with 'int field'
     // panel2 - middle -> goals table
     // panel3 - right -> transactions table
+    final Color backgroundColor = new Color(45, 49, 56);
+    final Color textColor = new Color(255, 255, 222);
+    final Color accentColor = new Color(113, 55, 210);
+
+    final Color logOutColor = new Color(219, 65, 70);
+    final RoundedBorder roundedBorder = new RoundedBorder(8);
+
+    Font manrope = new Font("Manrope", Font.PLAIN, 15);
 
     private void setFrame() {
+
+
         SwingUtilities.invokeLater(() ->
         {
-            //ImageIcon icon = new ImageIcon("./wallet-icon.ico");
-            //mainFrame.setIconImage(icon.getImage());
-
             mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            mainFrame.getContentPane().setBackground(new Color(38, 38, 38));
             mainFrame.setSize(1366, 768);
             mainFrame.setResizable(false);
+            ImageIcon icon = new ImageIcon(LogInWindow.class.getResource("/wallet-icon.png"));
+            mainFrame.setIconImage(icon.getImage());
 
 
             GridBagLayout mainGridLayout = new GridBagLayout();
@@ -34,6 +44,7 @@ public class MainWindow {
 
             GridLayout tablesGridLayout = new GridLayout(1, 3);
             tablesPanel.setLayout(tablesGridLayout);
+            tablesPanel.setBackground(backgroundColor);
 
             final GridBagConstraints topRow = new GridBagConstraints();
             topRow.gridx = 0;
@@ -43,7 +54,7 @@ public class MainWindow {
             topRow.fill = GridBagConstraints.BOTH;
 
             setTopRibbonPanel("Anon");
-            topRibbonPanel.setBackground(Color.blue);
+            topRibbonPanel.setBackground(backgroundColor);
             mainFrame.add(topRibbonPanel, topRow);
 
             final GridBagConstraints bottomRow = new GridBagConstraints();
@@ -52,6 +63,10 @@ public class MainWindow {
             bottomRow.weightx = 1.0;
             bottomRow.weighty = 0.8; // 80% of the height
             bottomRow.fill = GridBagConstraints.BOTH;
+
+            leftPanel.setBackground(backgroundColor);
+            centerPanel.setBackground(backgroundColor);
+            rightPanel.setBackground(backgroundColor);
 
             tablesPanel.add(leftPanel);
             tablesPanel.add(centerPanel);
@@ -66,16 +81,21 @@ public class MainWindow {
 
     private void setTopRibbonPanel(String username) {
         topRibbonPanel.setLayout(new BorderLayout());
+        topRibbonPanel.setBorder(new EmptyBorder(new Insets (20,20,20,20)));
 
         JPanel textPanel = new JPanel(new BorderLayout());
         textPanel.setBorder(new EmptyBorder(new Insets(10, 20, 10, 20)));
+        textPanel.setBackground(backgroundColor);
+
         JLabel helloLabel = new JLabel("Hello, " + username + "!");
-        helloLabel.setFont(new Font("Comic Sans", Font.BOLD, 30));
-        helloLabel.setForeground(new Color(0, 0, 0));
+        helloLabel.setFont(new Font("Manrope", Font.BOLD, 30));
+        helloLabel.setForeground(textColor);
         textPanel.add(helloLabel, BorderLayout.NORTH);
 
         Date current = new Date();
         JLabel dateLabel = new JLabel(current.toString());
+        dateLabel.setFont(new Font("Manrope", Font.PLAIN, 20));
+        dateLabel.setForeground(textColor);
         textPanel.add(dateLabel);
 
         Timer timer = new Timer(1000, e -> {
@@ -86,12 +106,27 @@ public class MainWindow {
         topRibbonPanel.add(textPanel, BorderLayout.WEST);
 
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(backgroundColor);
         buttonPanel.setLayout(new FlowLayout());
 
 
         JButton changeInfoButton = new JButton("Change ur info");
+        changeInfoButton.setBackground(backgroundColor);
+        changeInfoButton.setForeground(textColor);
+        changeInfoButton.setBorder(roundedBorder);
+        changeInfoButton.setFont(manrope);
+
         JButton refreshAllButton = new JButton("Refresh All");
+        refreshAllButton.setBackground(backgroundColor);
+        refreshAllButton.setForeground(textColor);
+        refreshAllButton.setBorder(roundedBorder);
+        refreshAllButton.setFont(manrope);
+
         JButton logOutButton = new JButton("Log Out");
+        logOutButton.setBackground(backgroundColor);
+        logOutButton.setForeground(logOutColor);
+        logOutButton.setBorder(roundedBorder);
+        logOutButton.setFont(manrope);
 
         buttonPanel.add(changeInfoButton);
         buttonPanel.add(refreshAllButton);
