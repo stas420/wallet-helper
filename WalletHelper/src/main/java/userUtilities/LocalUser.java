@@ -22,9 +22,9 @@ public class LocalUser {
     public static Optional<LocalUser> logIn (String username, String password) {
 
         LocalUser localUser = new LocalUser();
-        pullUserResultEnum result = localUser.pullUserFromDB(username, password);
+        pullUserResult result = localUser.pullUserFromDB(username, password);
 
-        if (result != pullUserResultEnum.OK) {
+        if (result != pullUserResult.OK) {
             logger.warn("logIn - invalid credentials, empty user");
             return Optional.empty();
         }
@@ -38,23 +38,23 @@ public class LocalUser {
                 "Username: " + localUser.userInfo.UserName + "\n" +
                 "Accounts List size: " + localUser.accountsInfo.size() + "\n" +
                 "Goals List size: " + localUser.goalsInfo.size() + "\n" +
-                "History List size: " + localUser.goalInfo.size());
+                "History List size: " + localUser.historyInfo.size());
 
         return Optional.of(localUser);
     }
 
     // Tested via logIn() 24/01/24 00:13
-    private enum pullUserResultEnum {
+    private enum pullUserResult {
         INVALID_USERNAME,
         INVALID_CRED,
         NO_SUCH_USER,
         OK
     }
-    public pullUserResultEnum pullUserFromDB(String username, String password) {
+    public pullUserResult pullUserFromDB(String username, String password) {
 
         if (!isCredentialValid(username)) {
             logger.error("in pullUserFromDB - invalid username: " + username);
-            return pullUserResultEnum.INVALID_USERNAME;
+            return pullUserResult.INVALID_USERNAME;
         }
 
         Optional<UserRecord[]> userRecords = DBGetData.getUserRows(username);
@@ -64,7 +64,7 @@ public class LocalUser {
                     "Passed username: " + username);
             // do something scary ;3
             // (UwU 👉👈)
-            return pullUserResultEnum.NO_SUCH_USER;
+            return pullUserResult.NO_SUCH_USER;
         }
 
         // Check if password is correct  V IMPORTANT! (this pleases the Java gods)
@@ -76,11 +76,11 @@ public class LocalUser {
         if (goodUser.isEmpty()) {
             logger.warn("None of the users from userRecords have matching passwords.\n" +
                     "Searched password: " + password);
-            return pullUserResultEnum.INVALID_CRED;
+            return pullUserResult.INVALID_CRED;
         }
 
         this.userInfo = goodUser.get();
-        return pullUserResultEnum.OK;
+        return pullUserResult.OK;
     }
 
     // part of registerNewUser
@@ -173,8 +173,8 @@ public class LocalUser {
         this.goalsInfo.clear();
         this.goalsInfo = null;
 
-        this.goalInfo.clear();
-        this.goalInfo = null;
+        this.historyInfo.clear();
+        this.historyInfo = null;
 
         this.accountsInfo.clear();
         this.accountsInfo = null;
@@ -223,7 +223,7 @@ public class LocalUser {
     }
 
     // Tested 24/01/24 01:15
-    private void pushNewAccountToDB(String title, String val, String currency) {
+    public void pushNewAccountToDB(String title, String val, String currency) {
 
         // idk if it's enough
         if (!isCredentialValid(title) || !isCredentialValid(currency)) {
@@ -250,7 +250,7 @@ public class LocalUser {
         this.pullAllAccountsFromDB();
     }
 
-    private void updateAccountInDB(String accID, String title, String val, String currency, String timeStamp) {
+    public void updateAccountInDB(String accID, String title, String val, String currency, String timeStamp) {
 
         DataKey[] columns = {DataKey.Title, DataKey.Val, DataKey.Currency, DataKey.CreateTimeStamp};
         String[] values = {title, val, currency, timeStamp};
@@ -358,8 +358,49 @@ public class LocalUser {
             return;
         }
 
-        this.goalInfo.clear();
-        this.goalInfo.addAll(List.of(userHistory.get()));
+        this.historyInfo.clear();
+        this.historyInfo.addAll(List.of(userHistory.get()));
+    }
+
+    public void updateHistoryInDB(String transID, String accID, String valueBefore, String change, String currency,
+                                  String title, String timeStamp) {
+
+        DataKey[] columns = {DataKey.AccID, DataKey.ValBefore, DataKey.Change, DataKey.Currency, DataKey.Title,
+                            DataKey.TimeStamp};
+
+        String[] values = {accID, valueBefore, change, currency, title, timeStamp};
+
+        try {
+            DBManageData.updateRow(TableKey.HISTORY, DataKey.TransID, transID, columns, values);
+        }
+        catch (SQLException e) {
+            logger.error("updateHistoryInDB - updateRow error, couldn't insert into DB: "
+                    + transID + ", " + accID + ", " + valueBefore + ", " + change + ", " + currency + ", " + title + ", "
+                    + timeStamp);
+            return;
+        }
+
+        this.pullAllAccountsFromDB();
+    }
+    public void updateGoalInDB(String goalID, String userID, String title, String value, String goal,
+                                   String currency, String createTimeStamp, String deadline) {
+
+        DataKey[] columns = {DataKey.GoalID, DataKey.UserID, DataKey.Title, DataKey.Val, DataKey.Goal,
+                DataKey.Currency, DataKey.CreateTimeStamp, DataKey.Deadline};
+
+        String[] values = {goalID, userID, title, value, goal, currency, createTimeStamp, deadline};
+
+        try {
+            DBManageData.updateRow(TableKey.GOALS, DataKey.GoalID, goalID, columns, values);
+        }
+        catch (SQLException e) {
+            logger.error("updateGoalInDB - updateRow error, couldn't insert into DB: "
+                    + goalID + ", " + userID + ", " + title + ", " + value + ", " + goal + ", " + currency + ", "
+                    + createTimeStamp + ", " + deadline);
+            return;
+        }
+
+        this.pullAllGoalsFromDB();
     }
 
     // Tested 24/01/24 01:16
@@ -395,7 +436,7 @@ public class LocalUser {
                         "\n stacktrace: " + e.getStackTrace());
             return;
         }
-
+        
         this.pullAllHistoryFromDB();
     }
 
@@ -424,7 +465,7 @@ public class LocalUser {
     public UserRecord userInfo;
     public ArrayList<AccountRecord> accountsInfo = new ArrayList<>();
     public ArrayList<GoalRecord> goalsInfo = new ArrayList<>();
-    public ArrayList<HistoryRecord> goalInfo = new ArrayList<>();
+    public ArrayList<HistoryRecord> historyInfo = new ArrayList<>();
 
     // ===== main =====
 

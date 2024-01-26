@@ -39,7 +39,7 @@ public class AccountRecord{
         Title = title;
         Val = Float.parseFloat(valueInt) / 100;
         Currency = currency;
-        CreateTimeStamp = stringUtils.parseEpochToDate(Integer.parseInt(createTimeStamp));
+        CreateTimeStamp = stringUtils.parseEpochToDate(Long.parseLong(createTimeStamp));
     }
 
     // private + setters() getters()? może później

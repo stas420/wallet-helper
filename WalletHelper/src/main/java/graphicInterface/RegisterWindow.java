@@ -160,7 +160,7 @@ public class RegisterWindow {
                                 JOptionPane.WARNING_MESSAGE);
                     } else {
                         registerWindow.dispose();
-                        // TODO open main window(local user)
+                        MainWindow.setFrame(localUser.get());
                     }
                 }
             }

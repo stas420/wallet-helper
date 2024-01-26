@@ -54,7 +54,7 @@ public class HistoryPanel {
     private static void addTable(LocalUser user) {
 
         final String[] columnHeads = {"Transaction ID", "Account ID", "Value before", "Change", "Title", "Date"};
-        String[][] contents = user.goalInfo.stream().map(historyRecord ->
+        String[][] contents = user.historyInfo.stream().map(historyRecord ->
                 new String[]{
                         String.valueOf(historyRecord.transId),
                         String.valueOf(historyRecord.accId),
@@ -80,6 +80,7 @@ public class HistoryPanel {
         table.setDefaultRenderer(String.class, centerRenderer);
 
         JScrollPane thisScrollPane = new JScrollPane(table);
+        thisScrollPane.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
         thisScrollPane.setBackground(backgroundColor);
 
         historyPanel.add(thisScrollPane);

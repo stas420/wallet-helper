@@ -31,7 +31,7 @@ public class MainWindow {
     public static void setFrame(LocalUser user) {
 
         loggedInUser = user;
-        mainFrame = new JFrame();
+        mainFrame = new JFrame("Wallet Helper");
 
         SwingUtilities.invokeLater(() ->
         {
@@ -126,13 +126,18 @@ public class MainWindow {
         buttonPanel.setBackground(backgroundColor);
         buttonPanel.setLayout(new FlowLayout());
 
-        JButton changeInfoButton = new JButton("Change ur info");
+        JButton changeInfoButton = new JButton("Change info");
         changeInfoButton.setBackground(backgroundColor);
         changeInfoButton.setForeground(textColor);
         changeInfoButton.setBorder(roundedBorder);
         changeInfoButton.setFont(manrope);
 
-        JButton refreshAllButton = new JButton("Refresh All");
+        changeInfoButton.addActionListener(e -> {
+            JFrame change = ChangeData.getChangeDataFrame(loggedInUser);
+            change.setVisible(true);
+        });
+
+        JButton refreshAllButton = new JButton("Refresh all");
         refreshAllButton.setBackground(backgroundColor);
         refreshAllButton.setForeground(textColor);
         refreshAllButton.setBorder(roundedBorder);
@@ -148,7 +153,7 @@ public class MainWindow {
             setFrame(loggedInUser);
         });
 
-        JButton logOutButton = new JButton("Log Out");
+        JButton logOutButton = new JButton("Log out");
         logOutButton.setBackground(backgroundColor);
         logOutButton.setForeground(logOutColor);
         logOutButton.setBorder(roundedBorder);
@@ -179,7 +184,7 @@ public class MainWindow {
 
     }
 
-    private static LocalUser loggedInUser;
+    public static LocalUser loggedInUser;
     private static JPanel leftPanel = new JPanel();
     private static JPanel centerPanel = new JPanel();
     private static JPanel rightPanel = new JPanel();

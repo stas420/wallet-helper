@@ -157,10 +157,9 @@ public class AccountsPanel {
 
         JScrollPane thisScrollPane = new JScrollPane(table);
         thisScrollPane.setBackground(backgroundColor);
-        /*
-        thisScrollPane.setBorder(new LineBorder(logOutColor));
-        thisScrollPane.setSize(thisScrollPane.getWidth(), 50);
-         */
+
+        thisScrollPane.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
+
 
         accountPanel.add(thisScrollPane);
     }

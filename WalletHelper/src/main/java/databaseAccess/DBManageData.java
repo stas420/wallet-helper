@@ -117,7 +117,7 @@ public class DBManageData {
                     break;
                 }
                 case FLOAT: {
-                    ps.setInt(i+1, Integer.parseInt(newVals[i]) * 100);
+                    ps.setInt(i+1, (int) (Float.parseFloat(newVals[i]) * 100));
                     break;
                 }
                 default: {

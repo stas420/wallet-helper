@@ -78,6 +78,7 @@ public class GoalsPanel {
         table.setRowHeight(20);
 
         JScrollPane thisScrollPane = new JScrollPane(table);
+        thisScrollPane.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
         thisScrollPane.setBackground(backgroundColor);
 
         goalPanel.add(thisScrollPane);
